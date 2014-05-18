@@ -1,0 +1,2127 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     88166,       2118]
+NotebookOptionsPosition[     86019,       2038]
+NotebookOutlinePosition[     86433,       2056]
+CellTagsIndexPosition[     86390,       2053]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Documentation", "Section",
+ CellChangeTimes->{{3.6087214230479393`*^9, 3.608721434381547*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Atlas Raw Data Structures ", "Subsection",
+ CellChangeTimes->{{3.608721447152801*^9, 3.60872148181673*^9}}],
+
+Cell[TextData[{
+ "JSON / JLink -Xmx : ",
+ ButtonBox["http://reference.wolfram.com/mathematica/ref/message/Import/\
+nojmem.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://reference.wolfram.com/mathematica/ref/message/Import/nojmem.\
+html"], None},
+  ButtonNote->
+   "http://reference.wolfram.com/mathematica/ref/message/Import/nojmem.html"],\
+
+ "\n\natlas documentation : ",
+ ButtonBox["https://atlas.ripe.net/docs/data_struct",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://atlas.ripe.net/docs/data_struct"], None},
+  ButtonNote->"https://atlas.ripe.net/docs/data_struct"],
+ " \nRFC4950 ICMP Extensions for Multiprotocol Label Switching : ",
+ ButtonBox["http://tools.ietf.org/html/rfc4950",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://tools.ietf.org/html/rfc4950"], None},
+  ButtonNote->"http://tools.ietf.org/html/rfc4950"],
+ "\nparis traceroute version : ",
+ ButtonBox["http://www.paris-traceroute.net\n\n",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.paris-traceroute.net"], None},
+  ButtonNote->"http://www.paris-traceroute.net"],
+ "howto/AddErrorBarsToChartsAndPlots"
+}], "Text",
+ CellChangeTimes->{{3.6087214880542593`*^9, 3.608721595370246*^9}, {
+   3.608721632986532*^9, 3.6087216430735397`*^9}, {3.608724735776119*^9, 
+   3.608724769432661*^9}, 3.6087291830923653`*^9, {3.6087311278752937`*^9, 
+   3.608731199380528*^9}, {3.609158405235774*^9, 3.609158406805558*^9}, {
+   3.6093240721535063`*^9, 3.6093241253772297`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data Source", "Subsection",
+ CellChangeTimes->{{3.605374964518663*^9, 3.605374999072028*^9}, {
+  3.605375065085256*^9, 3.6053750667331753`*^9}, {3.60872324559725*^9, 
+  3.6087232468678427`*^9}, {3.608807551255637*^9, 3.6088075541263*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"80", "mb", " ", "JSON", " ", "file"}], " ", "*)"}], 
+  RowBox[{
+   RowBox[{"sampleJSONSrc", "=", 
+    RowBox[{"If", "[", 
+     RowBox[{"True", ",", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
+         "\"\<RIPE-Atlas-measurement-digifortress-traceroute.json\>\""}], 
+        "}"}], "]"}], ",", "\[IndentingNewLine]", 
+      "\"\<https://atlas.ripe.net/api/v1/measurement/1608005/result/\>\""}], 
+     "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.6087265349254293`*^9, 3.608726664978224*^9}, {
+  3.6087317906710243`*^9, 3.608731798967926*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"118", "K", " ", "JSON", " ", "file"}], " ", "*)"}], 
+  RowBox[{
+   RowBox[{"sampleJSONSrc", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
+       "\"\<RIPE-Atlas-measurement-72.129.45.3-traceroute.json\>\""}], "}"}], 
+     "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.608731593429119*^9, 3.6087316167519913`*^9}, {
+  3.608731686763932*^9, 3.608731692825136*^9}, {3.6087317758812323`*^9, 
+  3.608731808336294*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Read JSON file", "Subsubsection",
+ CellChangeTimes->{{3.605374964518663*^9, 3.605374999072028*^9}, {
+  3.605375065085256*^9, 3.6053750667331753`*^9}, {3.60872324559725*^9, 
+  3.6087232468678427`*^9}, {3.6087335968436613`*^9, 3.608733599875064*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"UninstallJava", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<JLink`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ReinstallJava", "[", 
+    RowBox[{
+     RowBox[{"CommandLine", "\[Rule]", "\"\<java\>\""}], ",", 
+     RowBox[{"JVMArguments", "\[Rule]", "\"\<-Xmx2024m\>\""}]}], "]"}], ";"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sampleJSON", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{"sampleJSONSrc", ",", " ", "\"\<JSON\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UninstallJava", "[", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6087232492335663`*^9, 3.608723286846943*^9}, {
+   3.6087233239209948`*^9, 3.608723334409527*^9}, 3.608723501197599*^9, {
+   3.608723858176456*^9, 3.608723870214838*^9}, {3.608723901145125*^9, 
+   3.6087239676523323`*^9}, 3.608725623715502*^9, 3.6087265235405407`*^9, 
+   3.608726672995615*^9, {3.6087296159738894`*^9, 3.608729622911161*^9}, {
+   3.608731707421929*^9, 3.6087317155473223`*^9}, {3.608733583682705*^9, 
+   3.608733585780815*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dimensions", "[", "sampleJSON", "]"}]], "Input",
+ CellChangeTimes->{{3.60872397550578*^9, 3.608724018860467*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"63", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{{3.608723981713336*^9, 3.608724019337573*^9}, 
+   3.60872964436031*^9, 3.608731817700859*^9, 3.60880756873693*^9, 
+   3.608830158093946*^9, 3.60898528621108*^9, 3.609149372401539*^9, 
+   3.609152563591297*^9, 3.609312124861499*^9, {3.609316529280305*^9, 
+   3.609316554742669*^9}, {3.609317794984871*^9, 3.609317796600062*^9}, {
+   3.609318031930085*^9, 3.609318033160985*^9}, {3.609318938473106*^9, 
+   3.60931894310541*^9}, {3.609320417178113*^9, 3.6093204235535383`*^9}, {
+   3.609320878707852*^9, 3.609320882576929*^9}, 3.609321880832102*^9, 
+   3.6093244797461042`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Transcoding", "Subsection",
+ CellChangeTimes->{{3.605374964518663*^9, 3.605374999072028*^9}, {
+  3.605375065085256*^9, 3.6053750667331753`*^9}, {3.60872324559725*^9, 
+  3.6087232468678427`*^9}, {3.608807551255637*^9, 3.608807574904985*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Map Atlas JSON Traceroute To Summary\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.605374964518663*^9, 3.605374999072028*^9}, {
+  3.605375065085256*^9, 3.6053750667331753`*^9}, {3.60872324559725*^9, 
+  3.6087232468678427`*^9}, {3.6087335968436613`*^9, 3.608733622996016*^9}, {
+  3.608809875315811*^9, 3.608809877896698*^9}, {3.60914948402634*^9, 
+  3.6091494980282907`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"unixTimeToHST", "[", "x_Integer", "]"}], ":=", 
+    RowBox[{"DateList", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"AbsoluteTime", "[", 
+        RowBox[{"{", 
+         RowBox[{"1970", ",", "1", ",", "1", ",", "2", ",", "0", ",", "0"}], 
+         "}"}], "]"}], "+", "x"}], ",", 
+      RowBox[{"TimeZone", "\[Rule]", 
+       RowBox[{"-", "10"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "TEST", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"unixTimeToHST", "[", "1399725833", "]"}]}], "Input",
+ CellChangeTimes->{{3.609324729321457*^9, 3.6093248451536922`*^9}, {
+  3.609324932223752*^9, 3.6093249328778543`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2014", ",", "5", ",", "10", ",", "9", ",", "43", ",", "53.`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.609324956837243*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"summarizeTestsInsideSingleHop", " ", ":", " ", 
+    RowBox[{
+    "normalizes", " ", "a", " ", "single", " ", "ping", " ", "in", " ", "the",
+      " ", 
+     RowBox[{"hop", "'"}], "s", " ", "interval", " ", "test"}]}], " ", "*)"}],
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "summarizeTestsInsideSingleHop", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "::", "usage"}], "=", 
+     "\"\<summarizeTestsInsideSingleHop flattens out results - including \
+optional results - into a standard format. This implies some of that optional \
+info might well be dropped.  See normalizedResult::canonicalResult\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"normalizedResult", "::", "canonicalResult"}], "=", 
+     "\"\<{from, rtt, size, ttl, errorsIfAny}\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "MESSAGES", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "::", "icmpnext"}], "=", 
+     "\"\<(opt) icmpnext chunk omitted\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "::", "unexpectedArg"}], "=", 
+     "\"\<`1`\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_Integer"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_Integer"}]}], "}"}], "]"}], ":=",
+      " ", 
+     RowBox[{"{", 
+      RowBox[{"from", ",", "rtt", ",", " ", "size", ",", " ", "ttl", ",", 
+       RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"ittl", " ", 
+     RowBox[{"(", "optional", ")"}], " ", "TimeToLive", " ", "in", " ", 
+     "packet", " ", "that", " ", "triggered", " ", "the", " ", "error", " ", 
+     RowBox[{"ICMP", ".", " ", "Omitted"}], " ", "if", " ", "equal", " ", 
+     "to", " ", "1", " ", 
+     RowBox[{"(", "int", ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl_Integer"}], ",", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{"from", ",", "rtt", ",", " ", "size", ",", "ttl", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"icmpext", " ", 
+     RowBox[{"(", "optional", ")"}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext_List"}], ",", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ",
+      "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"from", ",", "rtt", ",", "size", ",", "ttl", ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], "}"}]}], "}"}]}],
+       "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeTestsInsideSingleHop", " ", "[", "x_", "]"}], ":=", 
+     " ", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"summarizeTestsInsideSingleHop", "::", "unexpectedArg"}], ",", 
+       "x"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"atlasToComputableForm", "[", 
+     RowBox[{"sampleJSON", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "]"}], "//", "TableForm"}]}]}]], "Input",\
+
+ CellChangeTimes->{{3.609164793750821*^9, 3.609164885607353*^9}, {
+   3.609164993038589*^9, 3.609165045135766*^9}, {3.6093122452672653`*^9, 
+   3.609312291366507*^9}, 3.6093125757745543`*^9, 3.609312615314372*^9, 
+   3.6093126621855173`*^9, {3.609312710336132*^9, 3.609312721908616*^9}, {
+   3.609312893537937*^9, 3.609312893792391*^9}, {3.6093130225496397`*^9, 
+   3.609313045889924*^9}, {3.6093135503021793`*^9, 3.6093135516385317`*^9}, {
+   3.609314272505211*^9, 3.609314359876707*^9}, {3.609314436434271*^9, 
+   3.6093144600253553`*^9}, {3.609314541477577*^9, 3.6093148802324657`*^9}, {
+   3.609314972132908*^9, 3.609314974803769*^9}, {3.6093150114049053`*^9, 
+   3.609315046514814*^9}, {3.609315147320613*^9, 3.609315212427706*^9}, {
+   3.609315259285136*^9, 3.609315288473546*^9}, {3.609316183661346*^9, 
+   3.6093162729599648`*^9}, {3.609316412690357*^9, 3.609316442098157*^9}, {
+   3.609317130711097*^9, 3.6093171527784348`*^9}, {3.609318722102545*^9, 
+   3.609318722279776*^9}, {3.6093187963882103`*^9, 3.609318798738023*^9}, {
+   3.609318844218083*^9, 3.609318876731143*^9}, {3.60931981285674*^9, 
+   3.609319828005795*^9}, {3.609320213701009*^9, 3.609320215866333*^9}, {
+   3.6093204699317207`*^9, 3.60932047081109*^9}, {3.609324245048479*^9, 
+   3.609324325866309*^9}, 3.609325708928343*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", 
+      "1165"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\
+\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"proto\"\>", 
+      "\[Rule]", "\<\"ICMP\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", \
+"\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", 
+      "1"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", \
+"\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"type\"\>", 
+      "\[Rule]", "\<\"traceroute\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", \
+"\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"timestamp\"\>", "\[Rule]", 
+      "1399725864"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\
+\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"endtime\"\>", "\[Rule]", 
+      "1399725866"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\
+\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"proto\"\>", 
+      "\[Rule]", "\<\"ICMP\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", \
+"\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {GridBox[{
+       {"\<\"192.168.1.1\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"2.419`", "2.4996666666666667`", "2.615`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"64", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"24.94.68.1\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"25.697`", "25.929333333333332`", "26.106`"},
+       {"28", "\<\"\"\>", "\<\"\"\>"},
+       {"254", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"24.25.230.137\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"15.107`", "16.50133333333333`", "17.318`"},
+       {"28", "\<\"\"\>", "\<\"\"\>"},
+       {"253", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.45.68\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"15.969`", "16.80366666666667`", "17.645`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"252", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.45.52\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"17.714`", "18.509`", "19.7`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"250", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.45.0\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"66.274`", "66.962`", "68.106`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"250", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.61.65\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"67.759`", "68.54700000000001`", "69.228`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"249", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.61.69\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"66.808`", "67.57233333333333`", "68.854`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"249", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.61.66\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"73.844`", "79.62466666666667`", "89.747`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"250", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.45.3\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"70.069`", "70.234`", "70.454`"},
+       {"40", "\<\"\"\>", "\<\"\"\>"},
+       {"250", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{
+   "prb_id" -> 1165, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+    "traceroute", "timestamp" -> 1399725864, "endtime" -> 1399725866, "proto" -> 
+    "ICMP", {{
+     "192.168.1.1", {2.419, 2.4996666666666667`, 2.615}, 68, 64, 0}, {
+     "24.94.68.1", {25.697, 25.929333333333332`, 26.106}, 28, 254, 0}, {
+     "24.25.230.137", {15.107, 16.50133333333333, 17.318}, 28, 253, 0}, {
+     "72.129.45.68", {15.969, 16.80366666666667, 17.645}, 68, 252, 0}, {
+     "72.129.45.52", {17.714, 18.509, 19.7}, 68, 250, 0}, {
+     "72.129.45.0", {66.274, 66.962, 68.106}, 68, 250, 0}, {
+     "72.129.61.65", {67.759, 68.54700000000001, 69.228}, 68, 249, 0}, {
+     "72.129.61.69", {66.808, 67.57233333333333, 68.854}, 68, 249, 0}, {
+     "72.129.61.66", {73.844, 79.62466666666667, 89.747}, 68, 250, 0}, {
+     "72.129.45.3", {70.069, 70.234, 70.454}, 40, 250, 0}}}]]], "Output",
+ CellChangeTimes->{
+  3.609317153443471*^9, {3.609317795023155*^9, 3.609317796634201*^9}, {
+   3.609318031998427*^9, 3.609318033196622*^9}, {3.609318938507587*^9, 
+   3.6093189431408377`*^9}, {3.609320417205717*^9, 3.609320423759663*^9}, 
+   3.609320473196965*^9, {3.6093208790762043`*^9, 3.60932088294666*^9}, 
+   3.6093218808671093`*^9, 3.609322346504871*^9, 3.609324302493711*^9, 
+   3.609324479783141*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"summarizeHop", " ", ":", " ", 
+    RowBox[{
+    "summarizes", " ", "RTTs", " ", "and", " ", "errors", " ", "from", " ", 
+     "a", " ", "specific", " ", "hop", " ", "in", " ", "the", " ", 
+     "traceroute", " ", "for", " ", "a", " ", "probe"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "summarizeHop", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "MESSAGES", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeHop", "::", "unexpectedArg"}], "=", "\"\<`1`\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeHop", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<hop\>\"", "\[Rule]", "hopID_"}], ",", " ", 
+        RowBox[{"\"\<result\>\"", "\[Rule]", "testsInsideHop_List"}]}], "}"}],
+       "]"}], ":=", " ", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"DEBUGargOnly", "=", "False"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+        "DEBUGargOnly", ",", "testsInsideHop", ",", "\[IndentingNewLine]", 
+         RowBox[{"Block", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "errorFreeTests", ",", " ", "firstResult", ",", "erroredTests", 
+             ",", "errorFreeRTTs", ",", "from", ",", "allNormedResults", ",", 
+             " ", "size", ",", "ttl", ",", "  ", "errorCount"}], " ", "}"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{" ", 
+              RowBox[{
+               RowBox[{
+               "Exected", " ", "form", " ", "returned", " ", "is", " ", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "from", ",", " ", "rtt", ",", " ", "size", ",", " ", "ttl", 
+                  ",", " ", "markAsErrorP", ",", " ", 
+                  RowBox[{"\"\<errorDetails\>\"", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"(", "listOfRules"}]}]}]}], "}"}]}], "|", 
+               RowBox[{"{", "}"}]}], ")"}], " ", "}"}], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"allNormedResults", "=", 
+             RowBox[{
+             "summarizeTestsInsideSingleHop", " ", "/@", " ", 
+              "testsInsideHop"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "classify", " ", "by", " ", "success", " ", "or", " ", 
+              "failures"}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"errorFreeTests", "=", 
+             RowBox[{"Cases", "[", 
+              RowBox[{"allNormedResults", ",", 
+               RowBox[{"{", 
+                RowBox[{"_", ",", "_", ",", "_", ",", "_", ",", 
+                 RowBox[{"{", "}"}]}], "}"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"erroredTests", "=", 
+             RowBox[{"Cases", "[", 
+              RowBox[{"allNormedResults", ",", 
+               RowBox[{"{", 
+                RowBox[{"_", ",", "_", ",", "_", ",", "_", ",", 
+                 RowBox[{
+                  RowBox[{"Length", "[", "_", "]"}], ">", "0"}]}], "}"}]}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"errorFreeTests", "=", 
+             RowBox[{"Cases", "[", 
+              RowBox[{"allNormedResults", ",", 
+               RowBox[{"{", 
+                RowBox[{"_", ",", "_", ",", "_", ",", "_", ",", "_"}], 
+                "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{"assert", " ", "-", " ", 
+              RowBox[{
+              "the", " ", "following", " ", "values", " ", "should", " ", 
+               "always", " ", "be", " ", "the", " ", "same", " ", "during", 
+               " ", "the", " ", "interval", " ", "test"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{"TODO", " ", "-", " ", 
+               RowBox[{
+               "IF", " ", "TTL", " ", "and", " ", "SIZE", " ", "do", " ", 
+                "change", " ", "during", " ", "interval", " ", "testing"}]}], 
+              ",", " ", 
+              RowBox[{
+              "is", " ", "that", " ", "indicitive", " ", "of", " ", "an", " ", 
+               RowBox[{"error", "?"}]}]}], "  ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"firstResult", "=", 
+             RowBox[{"allNormedResults", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"from", "=", 
+             RowBox[{"firstResult", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"size", "=", 
+             RowBox[{"firstResult", "[", 
+              RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"ttl", "=", 
+             RowBox[{"firstResult", "[", 
+              RowBox[{"[", "4", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"errorFreeRTTs", "=", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "[", "errorFreeTests", "]"}], ">", "0"}], 
+               ",", " ", 
+               RowBox[{"errorFreeTests", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{"process", " ", "erroredResults"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"errorCount", "=", 
+             RowBox[{"Length", "[", "erroredTests", "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{"returning", "..."}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"from", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Min", "[", "errorFreeRTTs", "]"}], ",", 
+                RowBox[{"Mean", "[", "errorFreeRTTs", "]"}], ",", " ", 
+                RowBox[{"Max", "[", "errorFreeRTTs", "]"}]}], "}"}], ",", " ",
+               "size", ",", "ttl", ",", " ", "errorCount"}], "}"}]}]}], 
+          "\[IndentingNewLine]", "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"summarizeHop", "[", "x_", "]"}], ":=", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"summarizeHop", "::", "unexpectedArg"}], ",", "x"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"atlasToComputableForm", "[", 
+     RowBox[{"sampleJSON", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "]"}], "//", "TableForm"}]}]}]], "Input",\
+
+ CellChangeTimes->{{3.6093184608795033`*^9, 3.6093185305797853`*^9}, {
+   3.609318588361006*^9, 3.609318599209496*^9}, {3.609318813239024*^9, 
+   3.60931883827728*^9}, {3.609318882709208*^9, 3.609318883162636*^9}, {
+   3.60931897368782*^9, 3.609318995241727*^9}, {3.6093190546082783`*^9, 
+   3.609319061375545*^9}, {3.6093197630648413`*^9, 3.60931979436036*^9}, {
+   3.6093201534173717`*^9, 3.6093201535007143`*^9}, 3.609320215909071*^9, {
+   3.609320250958911*^9, 3.6093203398526983`*^9}, {3.6093215186714563`*^9, 
+   3.60932158074578*^9}, {3.609321760963861*^9, 3.609321813877449*^9}, {
+   3.6093219824521923`*^9, 3.609321983769994*^9}, {3.609322043241767*^9, 
+   3.6093222250241013`*^9}, {3.6093222812618513`*^9, 3.609322289629134*^9}, {
+   3.609322327564207*^9, 3.609322333128636*^9}, {3.609324344458604*^9, 
+   3.609324354801663*^9}, 3.6093257091156473`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", 
+      "10546"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"proto\"\>", 
+      "\[Rule]", "\<\"ICMP\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", 
+      "1"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"type\"\>", 
+      "\[Rule]", "\<\"traceroute\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"timestamp\"\>", "\[Rule]", 
+      "1399725833"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"endtime\"\>", "\[Rule]", 
+      "1399725834"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {
+     RowBox[{"\<\"proto\"\>", 
+      "\[Rule]", "\<\"ICMP\"\>"}], "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"},
+    {GridBox[{
+       {"\<\"192.168.1.1\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"0.561`", "0.6173333333333333`", "0.683`"},
+       {"68", "\<\"\"\>", "\<\"\"\>"},
+       {"64", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"70.95.176.1\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"23.54`", "27.758666666666667`", "29.982`"},
+       {"28", "\<\"\"\>", "\<\"\"\>"},
+       {"254", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"24.25.230.229\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"11.997`", "12.549999999999999`", "13.312`"},
+       {"28", "\<\"\"\>", "\<\"\"\>"},
+       {"253", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"\<\"72.129.45.3\"\>", "\<\"\"\>", "\<\"\"\>"},
+       {"11.082`", "13.354666666666667`", "15.036`"},
+       {"40", "\<\"\"\>", "\<\"\"\>"},
+       {"252", "\<\"\"\>", "\<\"\"\>"},
+       {"0", "\<\"\"\>", "\<\"\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{
+   "prb_id" -> 10546, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+    "traceroute", "timestamp" -> 1399725833, "endtime" -> 1399725834, "proto" -> 
+    "ICMP", {{"192.168.1.1", {0.561, 0.6173333333333333, 0.683}, 68, 64, 0}, {
+     "70.95.176.1", {23.54, 27.758666666666667`, 29.982}, 28, 254, 0}, {
+     "24.25.230.229", {11.997, 12.549999999999999`, 13.312}, 28, 253, 0}, {
+     "72.129.45.3", {11.082, 13.354666666666667`, 15.036}, 40, 252, 
+      0}}}]]], "Output",
+ CellChangeTimes->{
+  3.609321581463554*^9, 3.6093217997727623`*^9, 3.609321839910551*^9, 
+   3.609321880897684*^9, 3.6093222263926783`*^9, 3.609322292208953*^9, {
+   3.60932233466953*^9, 3.6093223466212683`*^9}, 3.609324355648774*^9, 
+   3.609324479813882*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"walkProbeTraceroute", " ", ":", " ", 
+    RowBox[{"summarizes", " ", "an", " ", "individual", " ", 
+     RowBox[{"probe", "'"}], "s", " ", "traceroute"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "walkProbeTraceroute", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "MESSAGES", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"walkProbeTraceroute", "::", "usage"}], "=", 
+     "\"\<walkProbeTraceroute works through the results\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"walkProbeTraceroute", "::", "unexpectedArg"}], "=", 
+     "\"\<`1`\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Assert", " ", ":", " ", 
+     RowBox[{
+     "hop", " ", "is", " ", "dropped", " ", "in", " ", "the", " ", 
+      "expectation", " ", "walkProbeTraceroute", " ", "is", " ", "always", 
+      " ", "called", " ", "in", " ", "traversal", " ", "order", " ", "of", 
+      " ", "the", " ", "list", " ", "of", " ", "hops"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"walkProbeTraceroute", "[", "hopsInTraceroute_List", "]"}], ":=",
+      " ", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"Summary", " ", "roll"}], "-", 
+       RowBox[{
+       "up", " ", "results", " ", "of", " ", "entire", " ", "traceroute", " ",
+         "path", " ", "is", " ", "applied", " ", "here"}]}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"DEBUGshowArgOnly", "=", "False"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+        "DEBUGshowArgOnly", ",", "hopsInTraceroute", ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"summarizeHop", "/@", " ", "hopsInTraceroute"}]}], "]"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"walkProbeTraceroute", "[", "x_", "]"}], ":=", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"walkProbeTraceroute", "::", "unexpectedArg"}], ",", "x"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"atlasToComputableForm", "[", 
+     RowBox[{"sampleJSON", "[", 
+      RowBox[{"[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "5"}], "}"}], "]"}], "]"}], "]"}], "//", 
+    "TableForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.609152856227161*^9, 3.6091530200564337`*^9}, {
+   3.609153168993411*^9, 3.609153192483499*^9}, {3.609153238330598*^9, 
+   3.609153240867975*^9}, {3.609153317647407*^9, 3.609153326364382*^9}, {
+   3.6091533645510406`*^9, 3.609153372709176*^9}, {3.609153557979007*^9, 
+   3.609153630687481*^9}, {3.6091537912938757`*^9, 3.609153875722575*^9}, {
+   3.6091539188740463`*^9, 3.609153927730277*^9}, 3.6091539984781857`*^9, {
+   3.609156780265235*^9, 3.609156847585984*^9}, 3.609156992456811*^9, {
+   3.609157564853383*^9, 3.609157702802039*^9}, {3.6091577721412*^9, 
+   3.609157781128365*^9}, {3.609157845340139*^9, 3.609157870074847*^9}, {
+   3.609158018633589*^9, 3.609158024619543*^9}, {3.609158551963138*^9, 
+   3.609158768324256*^9}, {3.6091588002713833`*^9, 3.609158819931388*^9}, {
+   3.609158928563734*^9, 3.609159020571911*^9}, {3.609159059015214*^9, 
+   3.609159059341652*^9}, {3.609165074742371*^9, 3.609165079077491*^9}, {
+   3.60916518648602*^9, 3.60916518728483*^9}, {3.6093125132543373`*^9, 
+   3.6093125229603167`*^9}, {3.609313296780259*^9, 3.609313502120675*^9}, {
+   3.609313557542365*^9, 3.609314163782394*^9}, 3.6093145285035677`*^9, {
+   3.609315304175959*^9, 3.6093160207250566`*^9}, {3.609316050868552*^9, 
+   3.609316058073985*^9}, {3.609316100802555*^9, 3.609316137778124*^9}, {
+   3.609316300727672*^9, 3.6093163013932457`*^9}, {3.609316336216576*^9, 
+   3.609316374679563*^9}, {3.609316612320991*^9, 3.609316925295147*^9}, {
+   3.6093169891269093`*^9, 3.6093169990530767`*^9}, {3.609317592373118*^9, 
+   3.609317594571664*^9}, {3.609317635108992*^9, 3.609317646160198*^9}, {
+   3.6093177226728573`*^9, 3.609317728798497*^9}, {3.6093179401107197`*^9, 
+   3.609317943948379*^9}, {3.609318078268499*^9, 3.609318112859029*^9}, {
+   3.609318156508931*^9, 3.609318166379869*^9}, {3.6093183202271748`*^9, 
+   3.609318334462904*^9}, {3.6093186410837517`*^9, 3.6093186412669373`*^9}, 
+   3.6093187223143873`*^9, 3.609318798972227*^9, {3.609319131453676*^9, 
+   3.609319174218433*^9}, {3.609319742904696*^9, 3.6093197484653063`*^9}, {
+   3.609319974449204*^9, 3.609320005479931*^9}, {3.609320037149707*^9, 
+   3.609320082995206*^9}, 3.60932015350266*^9, {3.609320370639296*^9, 
+   3.6093203974004507`*^9}, {3.609320557716177*^9, 3.609320558657135*^9}, {
+   3.6093209914794416`*^9, 3.609321035637994*^9}, {3.6093210984202347`*^9, 
+   3.60932112673766*^9}, {3.609321408293758*^9, 3.609321412036162*^9}, {
+   3.609321456391039*^9, 3.609321501383626*^9}, {3.6093219030258017`*^9, 
+   3.60932192942041*^9}, 3.609325709287772*^9, {3.6093261240327168`*^9, 
+   3.609326128726535*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "10546"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], 
+     RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1399725833"}], 
+     RowBox[{"\<\"endtime\"\>", "\[Rule]", "1399725834"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], GridBox[{
+       {"\<\"192.168.1.1\"\>", GridBox[{
+          {"0.561`"},
+          {"0.6173333333333333`"},
+          {"0.683`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "64", "0"},
+       {"\<\"70.95.176.1\"\>", GridBox[{
+          {"23.54`"},
+          {"27.758666666666667`"},
+          {"29.982`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "254", "0"},
+       {"\<\"24.25.230.229\"\>", GridBox[{
+          {"11.997`"},
+          {"12.549999999999999`"},
+          {"13.312`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "253", "0"},
+       {"\<\"72.129.45.3\"\>", GridBox[{
+          {"11.082`"},
+          {"13.354666666666667`"},
+          {"15.036`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "40", "252", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]},
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "14720"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], 
+     RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1399726026"}], 
+     RowBox[{"\<\"endtime\"\>", "\[Rule]", "1399726029"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], GridBox[{
+       {"\<\"128.171.0.1\"\>", GridBox[{
+          {"0.503`"},
+          {"0.5586666666666668`"},
+          {"0.664`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "255", "0"},
+       {"\<\"128.171.213.14\"\>", GridBox[{
+          {"0.965`"},
+          {"1.0173333333333332`"},
+          {"1.055`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "253", "0"},
+       {"\<\"205.166.205.22\"\>", GridBox[{
+          {"1.021`"},
+          {"1.038`"},
+          {"1.07`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "253", "0"},
+       {"\<\"64.57.21.49\"\>", GridBox[{
+          {"65.542`"},
+          {"75.04233333333333`"},
+          {"93.999`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "251", "0"},
+       {"\<\"198.32.134.83\"\>", GridBox[{
+          {"65.699`"},
+          {"68.34566666666666`"},
+          {"73.565`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "250", "0"},
+       {"\<\"66.109.6.144\"\>", GridBox[{
+          {"93.623`"},
+          {"94.40899999999999`"},
+          {"95.914`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "140", "246", "0"},
+       {"\<\"66.109.9.44\"\>", GridBox[{
+          {"93.606`"},
+          {"94.307`"},
+          {"95.034`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "140", "247", "0"},
+       {"\<\"66.109.6.7\"\>", GridBox[{
+          {"93.65`"},
+          {"94.24900000000001`"},
+          {"95.438`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "248", "0"},
+       {"\<\"107.14.19.33\"\>", GridBox[{
+          {"93.625`"},
+          {"95.50600000000001`"},
+          {"99.216`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "247", "0"},
+       {"\<\"72.129.17.1\"\>", GridBox[{
+          {"93.88`"},
+          {"96.39133333333332`"},
+          {"97.679`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "246", "0"},
+       {"\<\"72.129.17.5\"\>", GridBox[{
+          {"97.545`"},
+          {"97.76833333333333`"},
+          {"97.991`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "245", "0"},
+       {"\<\"72.129.17.2\"\>", GridBox[{
+          {"95.389`"},
+          {"96.87700000000001`"},
+          {"97.699`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "246", "0"},
+       {"\<\"72.129.45.3\"\>", GridBox[{
+          {"73.531`"},
+          {"73.71733333333333`"},
+          {"73.901`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "40", "249", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "prb_id" -> 10546, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+     "traceroute", "timestamp" -> 1399725833, "endtime" -> 1399725834, 
+     "proto" -> "ICMP", {{
+      "192.168.1.1", {0.561, 0.6173333333333333, 0.683}, 68, 64, 0}, {
+      "70.95.176.1", {23.54, 27.758666666666667`, 29.982}, 28, 254, 0}, {
+      "24.25.230.229", {11.997, 12.549999999999999`, 13.312}, 28, 253, 0}, {
+      "72.129.45.3", {11.082, 13.354666666666667`, 15.036}, 40, 252, 0}}}, {
+    "prb_id" -> 14720, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+     "traceroute", "timestamp" -> 1399726026, "endtime" -> 1399726029, 
+     "proto" -> "ICMP", {{
+      "128.171.0.1", {0.503, 0.5586666666666668, 0.664}, 28, 255, 0}, {
+      "128.171.213.14", {0.965, 1.0173333333333332`, 1.055}, 28, 253, 0}, {
+      "205.166.205.22", {1.021, 1.038, 1.07}, 28, 253, 0}, {
+      "64.57.21.49", {65.542, 75.04233333333333, 93.999}, 28, 251, 0}, {
+      "198.32.134.83", {65.699, 68.34566666666666, 73.565}, 28, 250, 0}, {
+      "66.109.6.144", {93.623, 94.40899999999999, 95.914}, 140, 246, 0}, {
+      "66.109.9.44", {93.606, 94.307, 95.034}, 140, 247, 0}, {
+      "66.109.6.7", {93.65, 94.24900000000001, 95.438}, 68, 248, 0}, {
+      "107.14.19.33", {93.625, 95.50600000000001, 99.216}, 68, 247, 0}, {
+      "72.129.17.1", {93.88, 96.39133333333332, 97.679}, 68, 246, 0}, {
+      "72.129.17.5", {97.545, 97.76833333333333, 97.991}, 68, 245, 0}, {
+      "72.129.17.2", {95.389, 96.87700000000001, 97.699}, 68, 246, 0}, {
+      "72.129.45.3", {73.531, 73.71733333333333, 73.901}, 40, 249, 
+       0}}}}]]], "Output",
+ CellChangeTimes->{
+  3.6093177301099167`*^9, {3.609317795051023*^9, 3.609317796667034*^9}, 
+   3.609317842722474*^9, 3.609317882512767*^9, {3.6093180063593817`*^9, 
+   3.609318033229238*^9}, {3.609318098073491*^9, 3.609318113973063*^9}, 
+   3.609318167563139*^9, {3.609318301730433*^9, 3.6093183348666286`*^9}, {
+   3.6093189385737457`*^9, 3.60931894320643*^9}, 3.60932008504627*^9, {
+   3.609320417289617*^9, 3.609320424170607*^9}, {3.609320879857431*^9, 
+   3.609320883744985*^9}, 3.60932103914537*^9, {3.609321121341898*^9, 
+   3.609321127245216*^9}, 3.609321412814219*^9, {3.609321880942037*^9, 
+   3.6093219297726727`*^9}, 3.609322346657799*^9, 3.609324479850912*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"atlasToComputableForm", " ", ":", " ", 
+    RowBox[{
+    "Initiates", " ", "the", " ", "walk", " ", "of", " ", "traceroute", " ", 
+     "results"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "atlasToComputableForm", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"atlasToComputableForm", "::", "usage"}], "=", 
+     "\"\<Summarizes results from all probes\>\""}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"atlasToComputableForm", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "af_Rule", ",", "dstAddr_Rule", ",", "dstName_Rule", ",", " ", 
+        "endTime_Rule", ",", "from_Rule", ",", " ", 
+        RowBox[{"\"\<fw\>\"", "\[Rule]", "4610"}], ",", "groupID_Rule", ",", 
+        "msmID_Rule", ",", "msmName_Rule", ",", "parisID_Rule", ",", 
+        "prbID_Rule", ",", "proto_Rule", ",", 
+        RowBox[{"\"\<result\>\"", "->", "result_List"}], ",", "size_Rule", 
+        ",", "srcAddr_Rule", ",", "timeStamp_Rule", ",", "type_Rule"}], "}"}],
+       "]"}], " ", ":=", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"DEBUGshowResultOnly", "=", "False"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{"DEBUGshowResultOnly", ",", 
+         RowBox[{"walkProbeTraceroute", "[", "result", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "prbID", ",", "\[IndentingNewLine]", "proto", ",", 
+           "\[IndentingNewLine]", "parisID", ",", "\[IndentingNewLine]", 
+           "type", ",", "\[IndentingNewLine]", 
+           RowBox[{"\"\<interval\>\"", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"unixTimeToHST", "[", 
+               RowBox[{"\"\<timestamp\>\"", "/.", "timeStamp"}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"unixTimeToHST", "[", 
+               RowBox[{"\"\<endtime\>\"", "/.", "endTime"}], "]"}]}], "}"}]}],
+            ",", " ", "\[IndentingNewLine]", "proto", ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"\"\<hopsAsCDF\>\"", "->", 
+            RowBox[{"walkProbeTraceroute", "[", "result", "]"}]}]}], "}"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Generalize", " ", "for", " ", "a", " ", "list"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"atlasToComputableForm", "[", "aList_List", "]"}], ":=", " ", 
+     RowBox[{"atlasToComputableForm", " ", "/@", " ", "aList"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"atlasToComputableForm", "[", 
+     RowBox[{"sampleJSON", "[", 
+      RowBox[{"[", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "//", 
+    "TableForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.6087351806273727`*^9, 3.6087353513659554`*^9}, {
+   3.608735578029001*^9, 3.608735585027238*^9}, {3.6087357119476643`*^9, 
+   3.6087357252522163`*^9}, {3.6087357913532124`*^9, 3.6087358137943*^9}, {
+   3.60873596571528*^9, 3.608736029325078*^9}, {3.608736115644763*^9, 
+   3.608736122019315*^9}, {3.608736179727743*^9, 3.608736181980994*^9}, {
+   3.608736250329726*^9, 3.608736251649769*^9}, {3.608736289621395*^9, 
+   3.608736419771718*^9}, {3.608736478342988*^9, 3.608736512496715*^9}, {
+   3.6087365629492598`*^9, 3.608736611309143*^9}, {3.6087366483669653`*^9, 
+   3.608736651615346*^9}, {3.6087367777050037`*^9, 3.6087368023319273`*^9}, {
+   3.608736865718499*^9, 3.608736909761426*^9}, {3.6087369569228497`*^9, 
+   3.6087371142754097`*^9}, {3.608737166430056*^9, 3.608737221937228*^9}, 
+   3.608737383492482*^9, {3.608741181897262*^9, 3.608741286810581*^9}, {
+   3.6087419702189083`*^9, 3.6087419714909678`*^9}, 3.6087421672086554`*^9, {
+   3.608742217025342*^9, 3.608742332442893*^9}, {3.60880779812864*^9, 
+   3.608807821585294*^9}, {3.608807864107736*^9, 3.608807871756579*^9}, {
+   3.6088079143575363`*^9, 3.608808241234082*^9}, {3.608808278612982*^9, 
+   3.608808490400049*^9}, {3.608808565094347*^9, 3.608808812533045*^9}, {
+   3.60880884785435*^9, 3.608809046750752*^9}, {3.6088092168675337`*^9, 
+   3.6088092283633947`*^9}, {3.608809664138579*^9, 3.6088097575593557`*^9}, 
+   3.6088100071472692`*^9, {3.60881004096423*^9, 3.608810061478909*^9}, {
+   3.60881009228885*^9, 3.60881012157605*^9}, {3.608810310886404*^9, 
+   3.608810336550682*^9}, {3.608810504680747*^9, 3.608810505358376*^9}, {
+   3.608830242113315*^9, 3.608830256902947*^9}, {3.608830350295185*^9, 
+   3.608830404160823*^9}, {3.608830450684453*^9, 3.608830532599873*^9}, {
+   3.6088306344711237`*^9, 3.6088306442299643`*^9}, {3.6088306990504017`*^9, 
+   3.608830800858912*^9}, 3.60883097338667*^9, {3.6088311077181873`*^9, 
+   3.608831205243327*^9}, {3.608831260112187*^9, 3.6088312766363287`*^9}, {
+   3.609149392465444*^9, 3.609149473537148*^9}, {3.609149538043641*^9, 
+   3.609149623616795*^9}, {3.609149752574233*^9, 3.6091499710226727`*^9}, {
+   3.6091511811263437`*^9, 3.609151236571144*^9}, {3.609151411529361*^9, 
+   3.609151411957274*^9}, {3.609151456592945*^9, 3.6091514700568943`*^9}, {
+   3.60915151772886*^9, 3.609151539234981*^9}, {3.609151590799733*^9, 
+   3.6091515965560207`*^9}, {3.609151640174032*^9, 3.609151644193616*^9}, {
+   3.609151954913507*^9, 3.609151986638351*^9}, {3.609152422505856*^9, 
+   3.609152534658586*^9}, {3.609152687532886*^9, 3.6091527488988523`*^9}, {
+   3.609152784487994*^9, 3.60915279532837*^9}, {3.6091530316363287`*^9, 
+   3.609153065261904*^9}, {3.609153251340497*^9, 3.609153255204472*^9}, {
+   3.609153297710297*^9, 3.6091533055309467`*^9}, {3.609153478744787*^9, 
+   3.609153512467358*^9}, {3.609165128775765*^9, 3.609165130207528*^9}, {
+   3.6091651622843933`*^9, 3.609165163180472*^9}, 3.6093124601143923`*^9, {
+   3.609318199986681*^9, 3.609318252062583*^9}, 3.6093186412687607`*^9, {
+   3.609318896588382*^9, 3.609318931489303*^9}, {3.609319719212841*^9, 
+   3.609319732689254*^9}, 3.609319976854327*^9, {3.6093209706153717`*^9, 
+   3.609320971047205*^9}, {3.60932114578533*^9, 3.609321209823901*^9}, 
+   3.60932127363771*^9, {3.6093213443853483`*^9, 3.609321393281065*^9}, {
+   3.60932437930442*^9, 3.6093243874556627`*^9}, {3.6093244244155073`*^9, 
+   3.6093244455153103`*^9}, {3.60932497788065*^9, 3.609324989494034*^9}, {
+   3.60932507244392*^9, 3.60932509532125*^9}, {3.609325132801119*^9, 
+   3.609325176092664*^9}, {3.609325339151754*^9, 3.609325406981021*^9}, {
+   3.60932550022363*^9, 3.609325501340872*^9}, {3.609325641211061*^9, 
+   3.609325649324345*^9}, {3.609325707261717*^9, 3.609325758004424*^9}, {
+   3.609325972090273*^9, 3.609325982526104*^9}, {3.6093261969093847`*^9, 
+   3.6093262211788197`*^9}, {3.609326955966259*^9, 3.60932701447612*^9}, {
+   3.609327545179226*^9, 3.6093275502466173`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "12735"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], 
+     RowBox[{"\<\"interval\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "2014", ",", "5", ",", "10", ",", "9", ",", "45", ",", "7.`"}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "2014", ",", "5", ",", "10", ",", "9", ",", "45", ",", "7.`"}], 
+         "}"}]}], "}"}]}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"hopsAsCDF\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"10.0.1.1\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"0.396`", ",", "0.4753333333333334`", ",", "0.617`"}], 
+           "}"}], ",", "28", ",", "255", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"66.75.112.1\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"16.184`", ",", "20.616333333333333`", ",", "24.6`"}], 
+           "}"}], ",", "28", ",", "254", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"24.25.231.25\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"8.858`", ",", "9.836`", ",", "11.353`"}], "}"}], ",", 
+          "28", ",", "253", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"72.129.45.3\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"10.168`", ",", "10.45`", ",", "10.931000000000001`"}], 
+           "}"}], ",", "40", ",", "252", ",", "0"}], "}"}]}], "}"}]}]},
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "1178"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], 
+     RowBox[{"\<\"interval\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "2014", ",", "5", ",", "10", ",", "9", ",", "46", ",", "25.`"}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "2014", ",", "5", ",", "10", ",", "9", ",", "46", ",", "26.`"}], 
+         "}"}]}], "}"}]}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"hopsAsCDF\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"24.94.68.1\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"27.899`", ",", "28.257333333333335`", ",", "28.45`"}], 
+           "}"}], ",", "28", ",", "255", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"24.25.230.137\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"16.311`", ",", "21.74533333333333`", ",", "32.278`"}], 
+           "}"}], ",", "28", ",", "254", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"72.129.45.68\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "14.524000000000001`", ",", "16.382333333333335`", ",", 
+            "18.212`"}], "}"}], ",", "68", ",", "253", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"72.129.45.52\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"17.98`", ",", "18.803`", ",", "20.36`"}], "}"}], ",", 
+          "68", ",", "251", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"72.129.45.0\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"68.115`", ",", "68.322`", ",", "68.488`"}], "}"}], ",", 
+          "68", ",", "251", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"66.75.161.48\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"68.44`", ",", "69.815`", ",", "70.708`"}], "}"}], ",", 
+          "68", ",", "251", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"72.129.45.3\"\>", ",", 
+          RowBox[{"{", 
+           RowBox[{"66.755`", ",", "69.33033333333333`", ",", "71.401`"}], 
+           "}"}], ",", "40", ",", "251", ",", "0"}], "}"}]}], "}"}]}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.609325649773555*^9, {3.609325714216669*^9, 3.609325758471285*^9}, 
+   3.609325983301936*^9, {3.609326204080297*^9, 3.609326223848727*^9}, {
+   3.609326984672029*^9, 3.6093270151916847`*^9}, 3.609327680921204*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "pathsOnly", " ", "extracts", " ", "the", " ", "unique", " ", "traceroute",
+     " ", "path", " ", "from", " ", "all", " ", "tests"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "pathOnly", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pathOnly", "::", "usage"}], "=", 
+     "\"\<Given a JSON traceroute list, distill down to the unique set of \
+traceroute paths\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pathOnly", "::", "unexpectedArg"}], "=", "\"\<`1`\>\""}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<prb_id\>\"", "->", "prbID_Integer"}], ",", 
+        RowBox[{"\"\<proto\>\"", "\[Rule]", "proto_String"}], ",", 
+        RowBox[{"\"\<paris_id\>\"", "->", "parisID_Integer"}], ",", 
+        RowBox[{"\"\<type\>\"", "->", "type_String"}], ",", 
+        RowBox[{"\"\<interval\>\"", "->", "interval_List"}], ",", " ", 
+        RowBox[{"\"\<proto\>\"", "->", "proto_String"}], ",", " ", 
+        RowBox[{"\"\<hopsAsCDF\>\"", "\[Rule]", "hopsAsCDF_List"}]}], "}"}], 
+      "]"}], ":=", " ", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"{", 
+          RowBox[{"prbID", ",", 
+           RowBox[{"hopsAsCDF", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "}"}], "]"}]}], "]"}],
+       "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pathOnly", "[", "aList_List", "]"}], ":=", " ", 
+     RowBox[{"pathOnly", "/@", " ", "aList"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pathOnly", "[", "x_", "]"}], ":=", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"pathsOnly", "::", "unexpectedArg"}], ",", "x"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pathOnly", "[", 
+     RowBox[{"atlasToComputableForm", "[", 
+      RowBox[{"sampleJSON", "[", 
+       RowBox[{"[", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}], "//", 
+    "MatrixForm"}]}]}]], "Input",
+ CellChangeTimes->{{3.609326403191737*^9, 3.609326415080881*^9}, {
+  3.609326524203845*^9, 3.609326698678954*^9}, {3.60932691561574*^9, 
+  3.609326943762895*^9}, {3.60932703073063*^9, 3.609327129893414*^9}, {
+  3.609327192123206*^9, 3.6093275389638033`*^9}, {3.609327584046897*^9, 
+  3.6093276132427263`*^9}, {3.609327703015151*^9, 3.60932771593915*^9}, {
+  3.60932775102989*^9, 3.6093277634431334`*^9}, {3.609328140462871*^9, 
+  3.609328176027771*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+       "12735", ",", "\<\"10.0.1.1\"\>", ",", "\<\"66.75.112.1\"\>", 
+        ",", "\<\"24.25.231.25\"\>", ",", "\<\"72.129.45.3\"\>"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+       "1178", ",", "\<\"24.94.68.1\"\>", ",", "\<\"24.25.230.137\"\>", 
+        ",", "\<\"72.129.45.68\"\>", ",", "\<\"72.129.45.52\"\>", 
+        ",", "\<\"72.129.45.0\"\>", ",", "\<\"66.75.161.48\"\>", 
+        ",", "\<\"72.129.45.3\"\>"}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.6093281770813837`*^9, 3.609328381506212*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MapIndexed", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#1", "\[Rule]", "#2"}], "&"}], ",", 
+   RowBox[{"pathOnly", "[", 
+    RowBox[{"atlasToComputableForm", "[", 
+     RowBox[{"sampleJSON", "[", 
+      RowBox[{"[", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.609327486466278*^9, 3.609327488884767*^9}, {
+  3.609328183992482*^9, 3.609328204554487*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{
+      "12735", ",", "\<\"10.0.1.1\"\>", ",", "\<\"66.75.112.1\"\>", 
+       ",", "\<\"24.25.231.25\"\>", ",", "\<\"72.129.45.3\"\>"}], "}"}], 
+     "}"}], "\[Rule]", 
+    RowBox[{"{", "1", "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{
+      "1178", ",", "\<\"24.94.68.1\"\>", ",", "\<\"24.25.230.137\"\>", 
+       ",", "\<\"72.129.45.68\"\>", ",", "\<\"72.129.45.52\"\>", 
+       ",", "\<\"72.129.45.0\"\>", ",", "\<\"66.75.161.48\"\>", 
+       ",", "\<\"72.129.45.3\"\>"}], "}"}], "}"}], "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.609328205998919*^9, 3.609328385906204*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6093263023337812`*^9, 3.609326399124529*^9}, 
+   3.609326616900421*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "12735"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], GridBox[{
+       {"2014"},
+       {"5"},
+       {"10"},
+       {"9"},
+       {"45"},
+       {"7.`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"2014"},
+       {"5"},
+       {"10"},
+       {"9"},
+       {"45"},
+       {"7.`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], GridBox[{
+       {"\<\"10.0.1.1\"\>", GridBox[{
+          {"0.396`"},
+          {"0.4753333333333334`"},
+          {"0.617`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "255", "0"},
+       {"\<\"66.75.112.1\"\>", GridBox[{
+          {"16.184`"},
+          {"20.616333333333333`"},
+          {"24.6`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "254", "0"},
+       {"\<\"24.25.231.25\"\>", GridBox[{
+          {"8.858`"},
+          {"9.836`"},
+          {"11.353`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "253", "0"},
+       {"\<\"72.129.45.3\"\>", GridBox[{
+          {"10.168`"},
+          {"10.45`"},
+          {"10.931000000000001`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "40", "252", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]},
+    {
+     RowBox[{"\<\"prb_id\"\>", "\[Rule]", "1178"}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], 
+     RowBox[{"\<\"paris_id\"\>", "\[Rule]", "1"}], 
+     RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"traceroute\"\>"}], GridBox[{
+       {"2014"},
+       {"5"},
+       {"10"},
+       {"9"},
+       {"46"},
+       {"25.`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], GridBox[{
+       {"2014"},
+       {"5"},
+       {"10"},
+       {"9"},
+       {"46"},
+       {"26.`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     RowBox[{"\<\"proto\"\>", "\[Rule]", "\<\"ICMP\"\>"}], GridBox[{
+       {"\<\"24.94.68.1\"\>", GridBox[{
+          {"27.899`"},
+          {"28.257333333333335`"},
+          {"28.45`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "255", "0"},
+       {"\<\"24.25.230.137\"\>", GridBox[{
+          {"16.311`"},
+          {"21.74533333333333`"},
+          {"32.278`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "28", "254", "0"},
+       {"\<\"72.129.45.68\"\>", GridBox[{
+          {"14.524000000000001`"},
+          {"16.382333333333335`"},
+          {"18.212`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "253", "0"},
+       {"\<\"72.129.45.52\"\>", GridBox[{
+          {"17.98`"},
+          {"18.803`"},
+          {"20.36`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "251", "0"},
+       {"\<\"72.129.45.0\"\>", GridBox[{
+          {"68.115`"},
+          {"68.322`"},
+          {"68.488`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "251", "0"},
+       {"\<\"66.75.161.48\"\>", GridBox[{
+          {"68.44`"},
+          {"69.815`"},
+          {"70.708`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "68", "251", "0"},
+       {"\<\"72.129.45.3\"\>", GridBox[{
+          {"66.755`"},
+          {"69.33033333333333`"},
+          {"71.401`"}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.7]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.1]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}], "40", "251", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "prb_id" -> 12735, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+     "traceroute", {2014, 5, 10, 9, 45, 7.}, {2014, 5, 10, 9, 45, 7.}, 
+     "proto" -> "ICMP", {{
+      "10.0.1.1", {0.396, 0.4753333333333334, 0.617}, 28, 255, 0}, {
+      "66.75.112.1", {16.184, 20.616333333333333`, 24.6}, 28, 254, 0}, {
+      "24.25.231.25", {8.858, 9.836, 11.353}, 28, 253, 0}, {
+      "72.129.45.3", {10.168, 10.45, 10.931000000000001`}, 40, 252, 0}}}, {
+    "prb_id" -> 1178, "proto" -> "ICMP", "paris_id" -> 1, "type" -> 
+     "traceroute", {2014, 5, 10, 9, 46, 25.}, {2014, 5, 10, 9, 46, 26.}, 
+     "proto" -> "ICMP", {{
+      "24.94.68.1", {27.899, 28.257333333333335`, 28.45}, 28, 255, 0}, {
+      "24.25.230.137", {16.311, 21.74533333333333, 32.278}, 28, 254, 0}, {
+      "72.129.45.68", {14.524000000000001`, 16.382333333333335`, 18.212}, 68, 
+       253, 0}, {"72.129.45.52", {17.98, 18.803, 20.36}, 68, 251, 0}, {
+      "72.129.45.0", {68.115, 68.322, 68.488}, 68, 251, 0}, {
+      "66.75.161.48", {68.44, 69.815, 70.708}, 68, 251, 0}, {
+      "72.129.45.3", {66.755, 69.33033333333333, 71.401}, 40, 251, 
+       0}}}}]]], "Output",
+ CellChangeTimes->{3.609325812194347*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scratch", "Subsection",
+ CellChangeTimes->{{3.6053750305259247`*^9, 3.605375042024267*^9}, {
+  3.605375079598906*^9, 3.6053750805569572`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Extracting values from nested rules in JSON data\
+\>", "Subsubsection",
+ CellChangeTimes->{3.608732124065802*^9}],
+
+Cell["\<\
+http://mathematica.stackexchange.com/questions/3111/extracting-values-from-\
+nested-rules-in-json-data\
+\>", "Text",
+ CellChangeTimes->{{3.6087323539273777`*^9, 3.6087323627374983`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{711, 720},
+WindowMargins->{{-17, Automatic}, {Automatic, 4}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 100, 1, 100, "Section"],
+Cell[CellGroupData[{
+Cell[704, 27, 113, 1, 54, "Subsection"],
+Cell[820, 30, 1492, 35, 180, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2349, 70, 244, 3, 54, "Subsection"],
+Cell[2596, 75, 697, 17, 2035, "Input"],
+Cell[3296, 94, 567, 14, 1408, "Input"],
+Cell[CellGroupData[{
+Cell[3888, 112, 254, 3, 597, "Subsubsection"],
+Cell[4145, 117, 1168, 26, 2335, "Input"],
+Cell[CellGroupData[{
+Cell[5338, 147, 137, 2, 478, "Input"],
+Cell[5478, 151, 669, 11, 70, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6208, 169, 246, 3, 43, "Subsection"],
+Cell[CellGroupData[{
+Cell[6479, 176, 383, 7, 43, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[6887, 187, 705, 17, 78, "Input"],
+Cell[7595, 206, 166, 4, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7798, 215, 5996, 127, 498, "Input"],
+Cell[13797, 344, 9603, 222, 272, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23437, 571, 8122, 174, 709, "Input"],
+Cell[31562, 747, 4607, 111, 272, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36206, 863, 5383, 105, 351, "Input"],
+Cell[41592, 970, 14586, 340, 924, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56215, 1315, 6996, 124, 645, "Input"],
+Cell[63214, 1441, 4775, 114, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68026, 1560, 3122, 73, 477, "Input"],
+Cell[71151, 1635, 1100, 28, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72288, 1668, 466, 13, 57, "Input"],
+Cell[72757, 1683, 752, 20, 120, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73546, 1708, 120, 2, 35, "Input"],
+Cell[73669, 1712, 11754, 299, 612, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85484, 2018, 148, 2, 54, "Subsection"],
+Cell[CellGroupData[{
+Cell[85657, 2024, 123, 3, 43, "Subsubsection"],
+Cell[85783, 2029, 196, 4, 37, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
