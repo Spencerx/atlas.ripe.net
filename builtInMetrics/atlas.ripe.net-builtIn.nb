@@ -1,0 +1,1476 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     69363,       1467]
+NotebookOptionsPosition[     68184,       1420]
+NotebookOutlinePosition[     68565,       1437]
+CellTagsIndexPosition[     68522,       1434]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["70% Network Congestion", "Title",
+ CellChangeTimes->{{3.609411288161269*^9, 3.609411289406501*^9}, {
+  3.6094113487181273`*^9, 3.609411385982676*^9}}],
+
+Cell["\<\
+How long as TWC been aware of network congestion in High Speed Internet \
+service to Hana, HI?
+by A. Chase Turner
+
+For discussion purposes only.  Confidential.  Use or citation of this report \
+requires specific permission of the author.\
+\>", "Subtitle",
+ CellChangeTimes->{{3.609411393208486*^9, 3.609411477269533*^9}, {
+  3.6094115301714067`*^9, 3.609411620103806*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Atlas data source", "Section",
+ CellChangeTimes->{{3.609411393208486*^9, 3.609411426807868*^9}, {
+  3.609411492422267*^9, 3.609411499756665*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"urlForPingJSONData", " ", "-", " ", 
+    RowBox[{
+    "answer", " ", "with", " ", "the", " ", "JSON", " ", "URL", " ", "for", 
+     " ", "fetching", " ", "data"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "urlForPingJSONData", "]"}], ";", 
+    RowBox[{
+     RowBox[{"urlForPingJSONData", "::", "usage"}], " ", "=", " ", 
+     "\"\<URL to get atlas.ripe.net ping data\>\""}], ";", 
+    RowBox[{
+     RowBox[{"urlForPingJSONData", "::", "unexpectedArg"}], "=", 
+     "\"\<`1`\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"urlForPingJSONData", "[", 
+      RowBox[{"probeID_Integer", ",", "\[IndentingNewLine]", 
+       RowBox[{"resolution_String", " ", "/;", 
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{"resolution", ",", " ", 
+          RowBox[{"\"\<1h\>\"", " ", "|", " ", "\"\<1d\>\""}]}], "]"}]}], ",",
+        "\[IndentingNewLine]", 
+       RowBox[{"hopNumber_Integer", " ", "/;", " ", 
+        RowBox[{"MatchQ", "[", 
+         RowBox[{"hopNumber", " ", ",", " ", 
+          RowBox[{"1", "|", "2"}]}], "]"}]}], " ", ",", " ", 
+       "\[IndentingNewLine]", "startDate_String", ",", " ", 
+       "\[IndentingNewLine]", "endDate_String"}], "]"}], ":=", 
+     RowBox[{
+     "\"\<https://stat.ripe.net/data/atlas-ping-measurements/data.json?probe_\
+id=\>\"", "<>", 
+      RowBox[{"ToString", "[", "probeID", "]"}], "<>", 
+      "\"\<&measurement_id=\>\"", "<>", " ", 
+      RowBox[{"ToString", "[", "hopNumber", "]"}], "<>", 
+      "\"\<&starttime=\>\"", "<>", "startDate", "<>", "\"\<&endtime=\>\"", "<>",
+       "endDate", "<>", "\"\<&resolution=\>\"", "<>", "resolution"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"UNEXPECTED", " ", "ARGUMENT"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"urlForPingJSONData", "[", 
+      RowBox[{
+      "probeID_", ",", "resolution_", ",", "hopNumber_", ",", " ", 
+       "startDate_", ",", " ", "endDate_"}], "]"}], ":=", " ", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"urlForPingJSONData", "::", "unexpectedArg"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "probeID", ",", " ", "resolution", ",", " ", "hopNumber", ",", " ", 
+         "startDate", ",", "endDate"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"urlForPingJSONData", "[", 
+    RowBox[{
+    "1178", ",", "\"\<1h\>\"", ",", "1", ",", "\"\<2012-02-24T08:19:23\>\"", 
+     ",", "\"\<2014-05-09T16:50:21\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6094115097715073`*^9, 3.609411523388515*^9}, {
+  3.609411626352461*^9, 3.6094116464869747`*^9}, {3.609411726460371*^9, 
+  3.609412077776128*^9}, {3.609412109758697*^9, 3.609412428841082*^9}, {
+  3.609412481249681*^9, 3.609412600281231*^9}, {3.609412730977357*^9, 
+  3.60941288452738*^9}, {3.609412920911716*^9, 3.609412957462569*^9}, {
+  3.609413024429534*^9, 3.609413109936285*^9}, {3.609413207085894*^9, 
+  3.609413236794325*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"fileForPingJSONData", " ", "-", " ", 
+    RowBox[{
+    "answer", " ", "with", " ", "the", " ", "JSON", " ", "URL", " ", "for", 
+     " ", "fetching", " ", "data"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "fileForPingJSONData", "]"}], ";", 
+    RowBox[{
+     RowBox[{"fileForPingJSONData", "::", "usage"}], " ", "=", " ", 
+     "\"\<URL to get atlas.ripe.net ping data\>\""}], ";", 
+    RowBox[{
+     RowBox[{"fileForPingJSONData", "::", "unexpectedArg"}], "=", 
+     "\"\<`1`\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "IMPLEMENTATION", " ", "*)"}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fileForPingJSONData", "[", 
+      RowBox[{"probeID_Integer", ",", "\[IndentingNewLine]", 
+       RowBox[{"resolution_String", " ", "/;", 
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{"resolution", ",", " ", 
+          RowBox[{"\"\<1h\>\"", " ", "|", " ", "\"\<1d\>\""}]}], "]"}]}], ",",
+        "\[IndentingNewLine]", 
+       RowBox[{"hopNumber_Integer", " ", "/;", " ", 
+        RowBox[{"MatchQ", "[", 
+         RowBox[{"hopNumber", " ", ",", " ", 
+          RowBox[{"1", "|", "2"}]}], "]"}]}], " ", ",", " ", 
+       "\[IndentingNewLine]", "startDate_String", ",", " ", 
+       "\[IndentingNewLine]", "endDate_String"}], "]"}], ":=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<data\>\"", ",", 
+        RowBox[{"\"\<atlas.ripe.net-builtIn-p\>\"", "<>", 
+         RowBox[{"ToString", "[", "probeID", "]"}], "<>", 
+         "\"\<-resolution_\>\"", "<>", "resolution", "<>", "\"\<-hop_\>\"", "<>",
+          " ", 
+         RowBox[{"ToString", "[", "hopNumber", "]"}]}]}], "}"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"UNEXPECTED", " ", "ARGUMENT"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fileForPingJSONData", "[", 
+      RowBox[{
+      "probeID_", ",", "resolution_", ",", "hopNumber_", ",", " ", 
+       "startDate_", ",", " ", "endDate_"}], "]"}], ":=", " ", 
+     RowBox[{"Message", "[", 
+      RowBox[{
+       RowBox[{"fileForPingJSONData", "::", "unexpectedArg"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "probeID", ",", " ", "resolution", ",", " ", "hopNumber", ",", " ", 
+         "startDate", ",", "endDate"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"fileForPingJSONData", "[", 
+    RowBox[{
+    "1178", ",", "\"\<1h\>\"", ",", "1", ",", "\"\<2012-02-24T08:19:23\>\"", 
+     ",", "\"\<2014-05-09T16:50:21\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.609413257634655*^9, 3.6094132794975967`*^9}, {
+  3.609413331341248*^9, 3.609413541069919*^9}, {3.6094135968376503`*^9, 
+  3.609413611203681*^9}}],
+
+Cell[BoxData["\<\"/Users/chase/Desktop/data/atlas.ripe.net-builtIn-p1178-\
+resolution_1h-hop_1\"\>"], "Output",
+ CellChangeTimes->{{3.6094130948730927`*^9, 3.6094131108250637`*^9}, 
+   3.609413545727371*^9, {3.6094136023515587`*^9, 3.6094136168707037`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"firstHopP1178", "=", 
+  RowBox[{
+  "Import", "[", 
+   "\"\<https://stat.ripe.net/data/atlas-ping-measurements/data.json?probe_id=\
+1178&measurement_id=1&st;\[IndentingNewLine]\>"}]}]], "Input",
+ CellChangeTimes->{
+  3.609406763496324*^9, {3.609406803062764*^9, 3.6094068355405893`*^9}, {
+   3.6094071861530113`*^9, 3.609407199224146*^9}, {3.609407464124206*^9, 
+   3.609407466627966*^9}, 3.609411842867112*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"firstHopP1165", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<https://stat.ripe.net/data/atlas-ping-measurements/data.json?probe_\
+id=1165&measurement_id=1&starttime=2012-02-24T08:19:23&endtime=2014-05-09T16:\
+50:21&resolution=1h\>\"", ",", "\"\<JSON\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<atlas.ripe.net-p1165-firstHop.json\>\""}], "}"}], "]"}], ",", 
+   "firstHopP1165", ",", " ", "\"\<JSON\>\""}], "]"}]}], "Input"],
+
+Cell[BoxData["\<\"/Users/chase/Desktop/atlas.ripe.net-p1165-firstHop.json\"\>\
+"], "Output",
+ CellChangeTimes->{3.609407945147759*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"secondHopP1165", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<https://stat.ripe.net/data/atlas-ping-measurements/data.json?probe_\
+id=1165&measurement_id=2&starttime=2012-02-24T08:19:23&endtime=2014-05-09T16:\
+50:21&resolution=1h\>\"", ",", "\"\<JSON\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<atlas.ripe.net-p1165-secondHop.json\>\""}], "}"}], "]"}], ",", 
+   "secondHopP1165", ",", " ", "\"\<JSON\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.609407597735202*^9, 3.6094076592430363`*^9}, {
+  3.609407734010468*^9, 3.609407776307762*^9}}],
+
+Cell[BoxData["\<\"/Users/chase/Desktop/atlas.ripe.net-p1165-secondHop.json\"\>\
+"], "Output",
+ CellChangeTimes->{3.609408186494787*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<atlas.ripe.net-p1178-firstHop.json\>\""}], "}"}], "]"}], ",", 
+   "firstHopP1178", ",", " ", "\"\<JSON\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6094072450399218`*^9, 3.609407340532078*^9}}],
+
+Cell[BoxData["\<\"/Users/chase/Desktop/atlas.ripe.net-p1178-firstHop.json\"\>\
+"], "Output",
+ CellChangeTimes->{3.609407352825197*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dimensions", "[", "firstHopP1178", "]"}]], "Input",
+ CellChangeTimes->{{3.609407205702553*^9, 3.609407210970799*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "12", "}"}]], "Output",
+ CellChangeTimes->{{3.609407202669198*^9, 3.609407211621921*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<https://stat.ripe.net/data/atlas-ping-measurements/data.json?probe_id=\
+1178&measurement_id=1&starttime=2012-02-24T08:19:23&endtime=2014-05-09T16:50:\
+21&resolution=1w&display_mode=condensed\>\"", ",", "\"\<JSON\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6094067104764833`*^9, 3.609406718098178*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"cached\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"data\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\<\"latest_time\"\>", 
+       "\[Rule]", "\<\"2014-05-18T12:53:47\"\>"}], ",", 
+      RowBox[{"\<\"measurement_id\"\>", "\[Rule]", "1"}], ",", 
+      RowBox[{"\<\"measurements\"\>", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.088`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "21.066000000000003`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.8675`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1330300800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "927"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "9.625`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "29.804199999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.004999999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "927"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1330905600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7494"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "9.860000000000001`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "31.33075`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.483`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7494"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1331510400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7503"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "9.839`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.4036`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.329`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7503"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1332115200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7455"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.2238`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.0086`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.725`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7455"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1332720000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7479"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.155000000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.266`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "12.958`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7479"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1333324800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7497"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.2498`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.931400000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.32`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7497"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1333929600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7497"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.071`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.027899999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "12.904`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7497"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1334534400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7512"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.20065`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.79105`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.4695`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7512"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1335139200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.191`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.750049999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.344`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1335744000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7113"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.1687`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.8626`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.244`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7113"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1336348800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7458"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.228950000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.15545`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.475000000000001`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7458"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1336953600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7482"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.40415`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "36.7741`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.411`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7482"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1337558400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.20755`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.6679`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.5495`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1338163200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7449"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.1925`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.0445`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "13.996`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7449"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1338768000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7485"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.1989`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.070299999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.054`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7485"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1339372800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7500"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.26705`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.08185`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.252`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7500"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1339977600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7414"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.525500000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.9745`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.137500000000001`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7414"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1340582400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7445"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.7089`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.1136`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.030999999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7445"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1341187200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7146"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.6247`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "38.4848`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.1895`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7146"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1341792000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7453"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.6699`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.2152`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.972`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7453"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1342396800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.721599999999999`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.0436`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.555`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1343001600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7397"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.6899`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.4681`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.207`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7397"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1343606400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7388"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.7189`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.77575`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.408`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7388"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1344211200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7427"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.7768`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.1046`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.285`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7427"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1344816000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7389"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.6715`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.0535`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.34`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7389"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1345420800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7439"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.768`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.558`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.446`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7439"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1346025600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7421"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.694199999999999`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.1828`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.874`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7421"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1346630400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.644`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.038199999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.841999999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1347235200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7399"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.699`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.266`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.013`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7399"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1347840000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7417"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.824800000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "36.3496`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.574`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7417"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1348444800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7398"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.743`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "36.4516`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.305`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7398"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1349049600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7354"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.836749999999999`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "36.252`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.596499999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7354"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1349654400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7369"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.8625`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.975`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.671000000000001`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7369"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1350259200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7387"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.713000000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.2612`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.164`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7387"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1350864000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7281"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.728100000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "40.1331`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.72`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7281"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1351468800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7270"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.7301`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "40.51615`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "16.089`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7270"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1352073600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7434"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.73375`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "36.7875`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.2585`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7434"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1352678400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6829"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.762`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "38.472`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.513`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6829"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1353283200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7256"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.822999999999999`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "39.139`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "16.4935`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7256"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1353888000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6394"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.505`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "76.53925000000001`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "15.263499999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6394"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1354492800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6734"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.4825`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "56.356249999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "12.161`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6734"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1355097600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "5606"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "10.72235`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "64.43495`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "14.211`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "5606"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1355702400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7414"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "9.131749999999998`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "64.264`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "12.288`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7414"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1356307200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "5543"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.8354`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "34.9454`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.326`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "5543"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1356912000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7229"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.843`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "23.7565`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.213`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7229"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1357516800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.84655`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "37.78815`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.26`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1358121600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7509"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.875499999999999`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "38.963499999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.353`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7509"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1358726400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7410"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.931`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "68.3758`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.636`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7410"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1359331200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7342"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.9`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "211.9224`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.52`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7342"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1359936000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7335"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.692`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.869`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.248999999999999`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7335"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1360540800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7424"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.54825`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "48.321000000000005`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.3315`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7424"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1361145600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7338"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.472`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "51.319950000000006`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "9.958`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7338"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1361750400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7433"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.6777`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "39.8749`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.179`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7433"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1362355200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "8523"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.555200000000001`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.339000000000006`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.050999999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "8523"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1362960000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "8399"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.517999999999999`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "40.144`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.081`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "8399"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1363564800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7418"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.453000000000001`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "30.7007`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "9.9895`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7418"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1364169600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7343"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.536999999999999`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "21.436799999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.062`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7343"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1364774400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7411"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.7052`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "35.1146`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "11.391`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7411"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1365379200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9834`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.9164`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.059`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1365984000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7403"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.997400000000003`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.188`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.032`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7403"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1366588800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7432"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.04195`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.6809`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.123`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7432"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1367193600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.1955`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.42375`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.156000000000002`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1367798400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7432"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.083650000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.746300000000005`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.179`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7432"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1368403200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7417"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.929499999999997`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.0158`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.017`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7417"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1369008000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7460"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.142`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.24445`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.215999999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7460"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1369612800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7409"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.094`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.657000000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.195`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7409"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1370217600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7410"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.970399999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.140249999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.1975`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7410"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1370822400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7420"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.10415`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.4366`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.171499999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7420"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1371427200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.0116`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.8042`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.137`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1372032000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.00475`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.92675`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.155`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1372636800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6366"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.0227`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.316849999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.285999999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6366"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1373241600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7368"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.458`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.7804`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.0485`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7368"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1373846400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7400"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.49305`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "12.89495`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "9.786`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7401"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1374451200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "5307"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "9.3048`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.050799999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "27.384`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "5307"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1375056000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7533"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.5434`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.5299`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.331`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7533"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1375660800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7407"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.991600000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.016400000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.972`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7407"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1376265600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.0234`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.1298`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.969`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7431"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1376870400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7449"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.737000000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.053000000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.919`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7449"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1377475200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.644299999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.41005`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.57`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7470"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1378080000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7491"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.504`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.4308`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.476000000000003`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7491"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1378684800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7303"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.4402`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "32.903`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "9.988`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7303"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1379289600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7369"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.4155`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "14.5825`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "9.789000000000001`"}], ",", 
+           
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7369"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1379894400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7323"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.604199999999999`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "33.172`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "10.396`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7323"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1380499200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6769"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "8.739`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "41.4045`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "25.008`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6769"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1381104000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7551"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.7208`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.376200000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.599`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7551"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1381708800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7551"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.770599999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "42.306400000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.483`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7551"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1382313600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7556"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9524`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.705`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.722`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7556"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1382918400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7557"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.834799999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.938900000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.747999999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7557"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1383523200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7556"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.65375`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.9927`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.665`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7556"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1384128000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7528"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.861800000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.4893`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.738`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7528"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1384732800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7559"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.727`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.278999999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.614`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7559"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1385337600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7501"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.4294`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.632600000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.503`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7501"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1385942400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7487"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.801`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.5434`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.979`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7487"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1386547200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7382"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.30115`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "82.59819999999999`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "30.0155`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7382"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1387152000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6562"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.5046`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "90.67895`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "30.0175`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6562"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1387756800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7339"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.588`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "46.385000000000005`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.684`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7339"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1388361600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7471"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9296`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "45.4224`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.819000000000003`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7471"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1388966400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "2377"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.0509`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.067299999999996`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.01`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "2377"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1389571200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7450"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.987199999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.652`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.0435`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7450"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1390176000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7426"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.041050000000002`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.90625`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.0845`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7426"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1390780800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7199"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.012999999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.202`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.935`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7199"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1391385600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7425"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9858`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.248400000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.858999999999998`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7425"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1391990400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.645`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.435750000000006`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.89`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7404"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1392595200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7355"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9118`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.3514`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.015`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7355"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1393200000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "6802"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.977999999999998`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.9497`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.142999999999997`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "6802"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1393804800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7435"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.9076`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.863800000000005`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.212`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7435"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1394409600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7422"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.85945`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "45.5241`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.114`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7422"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1395014400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7447"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.137600000000003`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.572399999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.207`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7447"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1395619200"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7435"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.1556`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "43.8302`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.681`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7435"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1396224000"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7349"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.797`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.045500000000004`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.908`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7349"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1396828800"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7461"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "22.8212`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.4441`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "28.936`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7461"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1397433600"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7465"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.1036`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.390699999999995`"}], 
+           ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.147`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7465"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1398038400"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"received\"\>", "\[Rule]", "7411"}], ",", 
+           RowBox[{"\<\"rtt_5pct\"\>", "\[Rule]", "23.1114`"}], ",", 
+           RowBox[{"\<\"rtt_95pct\"\>", "\[Rule]", "44.4948`"}], ",", 
+           RowBox[{"\<\"rtt_med\"\>", "\[Rule]", "29.156000000000002`"}], ",", 
+           RowBox[{"\<\"sent\"\>", "\[Rule]", "7411"}], ",", 
+           RowBox[{"\<\"timestamp\"\>", "\[Rule]", "1398643200"}]}], "}"}]}], 
+        "}"}]}], ",", 
+      RowBox[{"\<\"probe_id\"\>", "\[Rule]", "1178"}], ",", 
+      RowBox[{"\<\"query_endtime\"\>", 
+       "\[Rule]", "\<\"2014-05-09T16:50:21\"\>"}], ",", 
+      RowBox[{"\<\"query_starttime\"\>", 
+       "\[Rule]", "\<\"2012-02-24T08:19:23\"\>"}], ",", 
+      RowBox[{"\<\"resolution\"\>", "\[Rule]", "\<\"1w\"\>"}], ",", 
+      RowBox[{"\<\"step\"\>", "\[Rule]", "604800"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"data_call_status\"\>", "\[Rule]", "\<\"supported\"\>"}], ",", 
+   
+   RowBox[{"\<\"messages\"\>", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"\<\"process_time\"\>", "\[Rule]", "557"}], ",", 
+   RowBox[{"\<\"query_id\"\>", 
+    "\[Rule]", "\<\"265e035a-de8c-11e3-931a-782bcb34677e\"\>"}], ",", 
+   RowBox[{"\<\"see_also\"\>", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"\<\"server_id\"\>", "\[Rule]", "\<\"stat-app1\"\>"}], ",", 
+   RowBox[{"\<\"status\"\>", "\[Rule]", "\<\"ok\"\>"}], ",", 
+   RowBox[{"\<\"status_code\"\>", "\[Rule]", "200"}], ",", 
+   RowBox[{"\<\"time\"\>", "\[Rule]", "\<\"2014-05-18T12:58:47.730397\"\>"}], 
+   ",", 
+   RowBox[{"\<\"version\"\>", "\[Rule]", "\<\"1.0\"\>"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.609406728847929*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{783, 760},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 156, 2, 92, "Title"],
+Cell[738, 26, 382, 9, 201, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1145, 39, 151, 2, 80, "Section"],
+Cell[1299, 43, 3196, 69, 337, "Input"],
+Cell[CellGroupData[{
+Cell[4520, 116, 2932, 66, 337, "Input"],
+Cell[7455, 184, 257, 3, 62, "Output"]
+}, Open  ]],
+Cell[7727, 190, 434, 9, 97, "Input"],
+Cell[CellGroupData[{
+Cell[8186, 203, 640, 16, 131, "Input"],
+Cell[8829, 221, 134, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9000, 228, 760, 18, 131, "Input"],
+Cell[9763, 248, 135, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9935, 255, 374, 9, 46, "Input"],
+Cell[10312, 266, 134, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10483, 273, 141, 2, 28, "Input"],
+Cell[10627, 277, 117, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10781, 284, 364, 7, 80, "Input"],
+Cell[11148, 293, 56996, 1122, 3327, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
