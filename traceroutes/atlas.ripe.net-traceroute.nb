@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     97902,       2364]
-NotebookOptionsPosition[     93760,       2232]
-NotebookOutlinePosition[     94171,       2250]
-CellTagsIndexPosition[     94128,       2247]
+NotebookDataLength[    117629,       2654]
+NotebookOptionsPosition[    114100,       2540]
+NotebookOutlinePosition[    114484,       2557]
+CellTagsIndexPosition[    114441,       2554]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -171,28 +171,12 @@ Cell["Read JSON file", "Subsubsection",
   3.605375065085256*^9, 3.6053750667331753`*^9}, {3.60872324559725*^9, 
   3.6087232468678427`*^9}, {3.6087335968436613`*^9, 3.608733599875064*^9}}],
 
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
-  RowBox[{"ClearAll", "[", "tData", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"tData", "::", "usage"}], "=", 
-   "\"\<cache to JSON structures\>\""}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"tData", "[", 
-    RowBox[{"resultNumber_Integer", ",", " ", "friendlyName_String"}], "]"}], 
-   ":=", 
-   RowBox[{
-    RowBox[{"tData", "[", 
-     RowBox[{"resultNumber", ",", " ", "friendlyName"}], "]"}], "=", 
-    RowBox[{"fetchJSON", "[", 
-     RowBox[{"resultNumber", ",", " ", "friendlyName"}], "]"}]}]}], 
-  ";"}]}], "Input",
+  RowBox[{"ClearAll", "[", "tData", "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.6101014039002037`*^9, 3.610101475977285*^9}, {
-  3.61010151444128*^9, 3.610101571757918*^9}}],
-
-Cell[CellGroupData[{
+  3.61010151444128*^9, 3.610101571757918*^9}, {3.61012702053625*^9, 
+  3.610127021272025*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -201,13 +185,129 @@ Cell[BoxData[
   "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"tData", "[", 
-     RowBox[{"1608005", ",", "\"\<digifortress\>\""}], "]"}], ";"}], 
+    RowBox[{"If", "[", 
+     RowBox[{"True", ",", 
+      RowBox[{"tData", "=", 
+       RowBox[{"fetchJSON", "[", 
+        RowBox[{"1608005", ",", " ", "\"\<digifortress\>\""}], "]"}]}], ",", 
+      "False"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"20", "mb", " ", "JSON", " ", "file"}], " ", "*)"}], 
    "\[IndentingNewLine]", 
-   RowBox[{"Dimensions", "[", 
-    RowBox[{"tData", "[", 
-     RowBox[{"1608005", ",", "\"\<digifortress\>\""}], "]"}], 
-    "]"}]}]}]], "Input",
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"False", ",", 
+      RowBox[{"tData", "=", 
+       RowBox[{"fetchJSON", "[", 
+        RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}]}], 
+      ",", "False"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Special", " ", "case", " ", "with", " ", "x"}], "\[Rule]", 
+     RowBox[{"*", " ", "values"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"False", ",", 
+      RowBox[{"tData", "=", 
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<af\>\"", "\[Rule]", "4"}], ",", 
+          RowBox[{"\"\<dst_addr\>\"", "\[Rule]", "\"\<72.129.45.3\>\""}], ",", 
+          RowBox[{"\"\<dst_name\>\"", "\[Rule]", "\"\<72.129.45.3\>\""}], ",", 
+          RowBox[{"\"\<endtime\>\"", "\[Rule]", "1399737713"}], ",", 
+          RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<24.94.68.214\>\""}], ",", 
+          RowBox[{"\"\<fw\>\"", "\[Rule]", "4610"}], ",", 
+          RowBox[{"\"\<group_id\>\"", "\[Rule]", "1664934"}], ",", 
+          RowBox[{"\"\<msm_id\>\"", "\[Rule]", "1664934"}], ",", 
+          RowBox[{"\"\<msm_name\>\"", "\[Rule]", "\"\<Traceroute\>\""}], ",", 
+          
+          RowBox[{"\"\<paris_id\>\"", "\[Rule]", "14"}], ",", 
+          RowBox[{"\"\<prb_id\>\"", "\[Rule]", "1178"}], ",", 
+          RowBox[{"\"\<proto\>\"", "\[Rule]", "\"\<ICMP\>\""}], ",", 
+          RowBox[{"\"\<result\>\"", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<hop\>\"", "\[Rule]", "1"}], ",", 
+               RowBox[{"\"\<result\>\"", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}], ",", 
+                  
+                  RowBox[{"{", 
+                   RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}], ",", 
+                  
+                  RowBox[{"{", 
+                   RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}]}], 
+                 "}"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<hop\>\"", "\[Rule]", "2"}], ",", 
+               RowBox[{"\"\<result\>\"", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}], ",", 
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "282.411`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}], ",", 
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "251.608`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}], ",", 
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "514.685`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}]}], 
+                 "}"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<hop\>\"", "\[Rule]", "3"}], ",", 
+               RowBox[{"\"\<result\>\"", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], ",", 
+                    
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "586.958`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], ",", 
+                    
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "71.773`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    "\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], ",", 
+                    
+                    RowBox[{"\"\<rtt\>\"", "\[Rule]", "20.124`"}], ",", 
+                    RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
+                    RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}]}], 
+                 "}"}]}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"\"\<size\>\"", "\[Rule]", "40"}], ",", 
+          RowBox[{"\"\<src_addr\>\"", "\[Rule]", "\"\<192.168.5.228\>\""}], 
+          ",", 
+          RowBox[{"\"\<timestamp\>\"", "\[Rule]", "1399737697"}], ",", 
+          RowBox[{"\"\<type\>\"", "\[Rule]", "\"\<traceroute\>\""}]}], "}"}], 
+        "}"}]}], ",", "False"}], "]"}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.6087232492335663`*^9, 3.608723286846943*^9}, {
    3.6087233239209948`*^9, 3.608723334409527*^9}, 3.608723501197599*^9, {
    3.608723858176456*^9, 3.608723870214838*^9}, {3.608723901145125*^9, 
@@ -220,31 +320,15 @@ Cell[BoxData[
    3.6100993423724213`*^9}, {3.6101000947760773`*^9, 
    3.6101000993264837`*^9}, {3.610100146148528*^9, 3.6101001527129908`*^9}, {
    3.610100196796145*^9, 3.610100237179511*^9}, {3.610101266132853*^9, 
-   3.610101281946369*^9}, {3.6101016204794416`*^9, 3.610101653499256*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"26718", ",", "17"}], "}"}]], "Output",
- CellChangeTimes->{3.610100190050465*^9, 3.610100267763289*^9, 
-  3.610100308174121*^9, 3.610101158673134*^9, 3.610101241595601*^9, 
-  3.610101491258251*^9, 3.610101575812027*^9, 3.610101850856559*^9}]
-}, Open  ]],
+   3.610101281946369*^9}, {3.6101016204794416`*^9, 3.610101653499256*^9}, {
+   3.610126917919087*^9, 3.610127014807176*^9}, 3.610127065807876*^9, {
+   3.610130313445962*^9, 3.610130454679446*^9}, {3.610130649942164*^9, 
+   3.610130735370245*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{"20", "mb", " ", "JSON", " ", "file"}], " ", "*)"}], "\n", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"tData", "[", 
-     RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"Dimensions", "[", 
-    RowBox[{"tData", "[", 
-     RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], 
-    "]"}]}]}]], "Input",
+ RowBox[{"Dimensions", "[", "tData", "]"}]], "Input",
  CellChangeTimes->{{3.6087232492335663`*^9, 3.608723286846943*^9}, {
    3.6087233239209948`*^9, 3.608723334409527*^9}, 3.608723501197599*^9, {
    3.608723858176456*^9, 3.608723870214838*^9}, {3.608723901145125*^9, 
@@ -255,122 +339,15 @@ Cell[BoxData[
    3.60983523522803*^9, 3.609835245775775*^9}, 3.609835296431098*^9, {
    3.609835436256811*^9, 3.609835454904014*^9}, {3.610100211130151*^9, 
    3.610100217110515*^9}, 3.6101016923366337`*^9, {3.610101722611114*^9, 
-   3.610101731024941*^9}}],
+   3.610101731024941*^9}, {3.610127034116309*^9, 3.610127099544941*^9}, {
+   3.6101303371062603`*^9, 3.610130365122479*^9}, {3.610130457339683*^9, 
+   3.6101304610201283`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"8713", ",", "17"}], "}"}]], "Output",
- CellChangeTimes->{3.6101003144060163`*^9, 3.610101166705111*^9, 
-  3.610101250850863*^9, 3.610101863699891*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-    RowBox[{
-    "Example", " ", "snippet", " ", "where", " ", "a", " ", "hop", " ", 
-     "result", " ", "includes", " ", "the", " ", "x"}], "\[Rule]", "*"}], " ",
-    "*)"}], "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"tData", "[", 
-     RowBox[{"1664934", ",", "\"\<example of x->*\>\""}], "]"}], "=", 
-    RowBox[{"{", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\"\<af\>\"", "\[Rule]", "4"}], ",", 
-       RowBox[{"\"\<dst_addr\>\"", "\[Rule]", "\"\<72.129.45.3\>\""}], ",", 
-       RowBox[{"\"\<dst_name\>\"", "\[Rule]", "\"\<72.129.45.3\>\""}], ",", 
-       RowBox[{"\"\<endtime\>\"", "\[Rule]", "1399737713"}], ",", 
-       RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<24.94.68.214\>\""}], ",", 
-       RowBox[{"\"\<fw\>\"", "\[Rule]", "4610"}], ",", 
-       RowBox[{"\"\<group_id\>\"", "\[Rule]", "1664934"}], ",", 
-       RowBox[{"\"\<msm_id\>\"", "\[Rule]", "1664934"}], ",", 
-       RowBox[{"\"\<msm_name\>\"", "\[Rule]", "\"\<Traceroute\>\""}], ",", 
-       RowBox[{"\"\<paris_id\>\"", "\[Rule]", "14"}], ",", 
-       RowBox[{"\"\<prb_id\>\"", "\[Rule]", "1178"}], ",", 
-       RowBox[{"\"\<proto\>\"", "\[Rule]", "\"\<ICMP\>\""}], ",", 
-       RowBox[{"\"\<result\>\"", "\[Rule]", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"\"\<hop\>\"", "\[Rule]", "1"}], ",", 
-            RowBox[{"\"\<result\>\"", "\[Rule]", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}]}], 
-              "}"}]}]}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"\"\<hop\>\"", "\[Rule]", "2"}], ",", 
-            RowBox[{"\"\<result\>\"", "\[Rule]", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}],
-                  ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "282.411`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}],
-                  ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "251.608`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<24.25.230.137\>\""}],
-                  ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "514.685`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "28"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "254"}]}], "}"}]}], 
-              "}"}]}]}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"\"\<hop\>\"", "\[Rule]", "3"}], ",", 
-            RowBox[{"\"\<result\>\"", "\[Rule]", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], 
-                 ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "586.958`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], 
-                 ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "71.773`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\"\<from\>\"", "\[Rule]", "\"\<72.129.45.68\>\""}], 
-                 ",", 
-                 RowBox[{"\"\<rtt\>\"", "\[Rule]", "20.124`"}], ",", 
-                 RowBox[{"\"\<size\>\"", "\[Rule]", "68"}], ",", 
-                 RowBox[{"\"\<ttl\>\"", "\[Rule]", "253"}]}], "}"}]}], 
-              "}"}]}]}], "}"}]}], "}"}]}], ",", 
-       RowBox[{"\"\<size\>\"", "\[Rule]", "40"}], ",", 
-       RowBox[{"\"\<src_addr\>\"", "\[Rule]", "\"\<192.168.5.228\>\""}], ",", 
-       
-       RowBox[{"\"\<timestamp\>\"", "\[Rule]", "1399737697"}], ",", 
-       RowBox[{"\"\<type\>\"", "\[Rule]", "\"\<traceroute\>\""}]}], "}"}], 
-     "}"}]}], ";"}]}]], "Input",
- CellChangeTimes->{{3.610102497591744*^9, 3.610102562227401*^9}, 
-   3.610102609346642*^9}]
+  RowBox[{"26718", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{3.610130532653183*^9, 3.610130814363858*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -449,7 +426,8 @@ Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"2014", ",", "5", ",", "10", ",", "9", ",", "43", ",", "53.`"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.6101248988199053`*^9}]
+ CellChangeTimes->{3.6101248988199053`*^9, 3.610125327460946*^9, 
+  3.61014507998735*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -543,6 +521,18 @@ probe name\>\""}], ";"}], "\[IndentingNewLine]",
        RowBox[{"prbID", ",", "ipV4"}], "]"}], "=", "ipV4"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
+    RowBox[{
+    "SPECIAL", " ", "CASE", " ", "for", " ", "ASTRIX", " ", "routed", " ", 
+     "values"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"uniquifyNonRoutable", "[", 
+      RowBox[{"prbID_Integer", ",", "aSymbol_Symbol"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"ToString", "[", "prbID", "]"}], "<>", "\"\<_\>\"", "<>", 
+      RowBox[{"ToString", "[", "aSymbol", "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
     RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
     "*)"}], " ", "\[IndentingNewLine]", 
    RowBox[{
@@ -566,12 +556,13 @@ probe name\>\""}], ";"}], "\[IndentingNewLine]",
        "\"\<172.16.0.1\>\"", ",", " ", "\"\<172.31.255.255\>\"", ",", 
        "\"\<172.32.1.1\>\""}], "}"}]}], "//", "TableForm"}]}]}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQAWIQzabwnFnx6SvH9R2i0iD6m8wlBRC9ZuEXDxB955T+
+1:eJxTTMoPSmViYGAQA2IQzabwnFnx6SvH9R2i0iD6m8wlBRC9ZuEXDxB955T+
 AhAd9ezAVhB9qHrZIbC6/y9ugGgRO0YxJZD4pkPyIPrZj+M6IJp92SkwfYaz
 UEYVSF//4aIKotvCTmuC6HV7/2uDaHV980k7gfS8KbZgOkWoZyGIfnfw5B4Q
 3XzgwCEQ/ejkwsMgmifK5jSIvrey8AaIfrL48F0Q/YVD5h6InsXL8AhEqx29
 +xhEc9l/ewmitx18/R5ETzrF8A1EX3i3/DuI7jz/+i+I5mso+AeiU2eqS+4F
-0ox3zoDpPZYr9fcBaR97JVMQnffb2uMIyBzlJ54gGgAHIr7Y
+0ox3zoDpPZYr9fcBaR97JVMQnffb2uMIyBzlJ54geoGxDsc5kP0x5nwguuHh
+FEkQveboQmUQDQAC/tEx
   "]],
 
 Cell[BoxData[
@@ -603,7 +594,9 @@ Cell[BoxData[
    3.609792878136198*^9, 3.609799019033351*^9, 3.61009392650898*^9, 
    3.6101029487973022`*^9, 3.610103585374258*^9, 3.610103681620736*^9, 
    3.610103742730977*^9, 3.610103796186714*^9, 3.610110161809211*^9, 
-   3.610111762857842*^9, 3.610112426404804*^9, 3.6101248989039*^9}]
+   3.610111762857842*^9, 3.610112426404804*^9, 3.6101248989039*^9, 
+   3.610125327497916*^9, 3.610144882914349*^9, {3.610145054686078*^9, 
+   3.610145080044628*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -689,9 +682,8 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
          RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt"}], ",", 
          RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
          RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], "}"}]}], "}"}]}],
-       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}]}], "}"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"BAD", " ", 
      RowBox[{"RESULTS", " ", "--"}], " ", "return", " ", "as", " ", "packet", 
@@ -706,7 +698,83 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
        RowBox[{"{", 
         RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<*\>\""}], "}"}]}], "}"}]}], 
-    ";"}], "\[IndentingNewLine]", 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<error\>\"", "\[Rule]", 
+        "\"\<sendto failed: Network is unreachable\>\""}], "}"}], "]"}], " ", 
+     ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<error\>\"", "\[Rule]", 
+         "\"\<sendto failed: Network is unreachable\>\""}], "}"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<err\>\"", "\[Rule]", "err_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<err\>\"", "\[Rule]", "err"}], "}"}]}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<err\>\"", "\[Rule]", "err_"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<err\>\"", "\[Rule]", "err"}], "}"}]}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<err\>\"", "\[Rule]", "err_"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", 
+        RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<rtt\>\"", " ", "\[Rule]", "rtt"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<err\>\"", "\[Rule]", "err"}], ",", " ", 
+          RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"ittl", " ", 
      RowBox[{"(", "optional", ")"}], " ", "TimeToLive", " ", "in", " ", 
@@ -733,7 +801,7 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
        RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], "}"}]}]}], "}"}]}], 
-    ";"}], "\[IndentingNewLine]", 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"late", " ", 
      RowBox[{"(", "optional", ")"}], " ", "means", " ", "the", " ", "timeout",
@@ -759,7 +827,25 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
          RowBox[{
           RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], ",", 
           RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}]}], "}"}]}]}], 
-      "}"}]}], ";"}], "\[IndentingNewLine]", 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}], "}"}]}]}], "}"}]}],
+     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"sHopInterval", "[", 
@@ -784,6 +870,256 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
           RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], ",", 
           RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}]}], "}"}]}]}], 
       "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext_List"}], ",", 
+        RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl_Integer"}], ",", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ",
+      "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", " ", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], ",", 
+          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], ",", " ", 
+          RowBox[{"\"\<late\>\"", "\[Rule]", "late"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext_"}], ",", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], ",", 
+          RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}]}], "}"}]}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext_"}], ",", 
+        RowBox[{"\"\<ittl\>\"", " ", "\[Rule]", "ittl_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], ",", 
+          RowBox[{"\"\<ittl\>\"", " ", "\[Rule]", "ittl"}]}], "}"}]}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl_Integer"}], ",", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<ittl\>\"", "\[Rule]", "ittl"}], ",", 
+          RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}]}], "}"}]}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}]}], "}"}]}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext_"}], ",", 
+        RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<icmpext\>\"", "\[Rule]", "icmpext"}], ",", 
+          RowBox[{"\"\<late\>\"", " ", "\[Rule]", "late"}]}], "}"}]}]}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", " ", "\[Rule]", "icmpext_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<icmpext\>\"", " ", "\[Rule]", "icmpext"}], ",", 
+          RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<dup\>\"", "\[Rule]", "dup_"}], ",", 
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<icmpext\>\"", " ", "\[Rule]", "icmpext_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<dup\>\"", "\[Rule]", "dup"}], ",", 
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<icmpext\>\"", " ", "\[Rule]", "icmpext"}], ",", 
+          RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<dup\>\"", "\[Rule]", "dup_"}], ",", 
+        RowBox[{"\"\<edst\>\"", "\[Rule]", "edst_String"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<ittl\>\"", " ", "\[Rule]", "ittl_"}], ",", 
+        RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<dup\>\"", "\[Rule]", "dup"}], ",", 
+          RowBox[{"\"\<edst\>\"", "\[Rule]", "edst"}], ",", 
+          RowBox[{"\"\<ittl\>\"", " ", "\[Rule]", "ittl"}], ",", 
+          RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sHopInterval", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<dup\>\"", "\[Rule]", "dup_"}], ",", 
+        RowBox[{"\"\<from\>\"", "\[Rule]", "from_"}], ",", " ", 
+        RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt_"}], ",", 
+        RowBox[{"\"\<size\>\"", "\[Rule]", "size_"}], ",", " ", 
+        RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl_"}]}], "}"}], "]"}], ":=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<from\>\"", "\[Rule]", "from"}], ",", 
+       RowBox[{"\"\<size\>\"", "\[Rule]", "size"}], ",", " ", 
+       RowBox[{"\"\<ttl\>\"", "\[Rule]", "ttl"}], ",", 
+       RowBox[{"\"\<PACKET_DROP\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<dup\>\"", "\[Rule]", "dup"}], ",", 
+          RowBox[{"\"\<rtt\>\"", "\[Rule]", "rtt"}]}], "}"}]}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
     "*)"}], " ", "\[IndentingNewLine]", 
@@ -797,11 +1133,10 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
    RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"walkAtlasTraceroute", "[", 
-     RowBox[{
-      RowBox[{"tData", "[", 
-       RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-      RowBox[{"[", "3", "]"}], "]"}], "]"}], "//", "TableForm"}]}]}]], "Input",\
-
+     RowBox[{"tData", "[", 
+      RowBox[{"[", 
+       RowBox[{"3", ";;", "4"}], "]"}], "]"}], "]"}], "//", 
+    "TableForm"}]}]}]], "Input",
  CellChangeTimes->{{3.609164793750821*^9, 3.609164885607353*^9}, {
    3.609164993038589*^9, 3.609165045135766*^9}, {3.6093122452672653`*^9, 
    3.609312291366507*^9}, 3.6093125757745543`*^9, 3.609312615314372*^9, 
@@ -838,7 +1173,30 @@ normalizedResult::canonicalResult\>\""}], ";"}], "\[IndentingNewLine]",
    3.610104745923349*^9}, {3.610104776777289*^9, 3.610104776877021*^9}, {
    3.6101083997121363`*^9, 3.6101084934690247`*^9}, {3.610108546882719*^9, 
    3.610108622681925*^9}, {3.61010868383738*^9, 3.610108746976993*^9}, 
-   3.610111892140045*^9}],
+   3.610111892140045*^9, {3.610130827072122*^9, 3.6101308333357697`*^9}, {
+   3.610132374960351*^9, 3.61013250134191*^9}, {3.610132619305676*^9, 
+   3.610132622599628*^9}, {3.6101326767612553`*^9, 3.610132808238966*^9}, {
+   3.610132923444297*^9, 3.610132979538233*^9}, {3.6101330634651823`*^9, 
+   3.610133111662834*^9}, {3.610133212332127*^9, 3.610133233715891*^9}, {
+   3.6101333223924932`*^9, 3.610133342868421*^9}, {3.610133453259513*^9, 
+   3.610133567720834*^9}, {3.610133695455505*^9, 3.6101338073527946`*^9}, {
+   3.610133892811985*^9, 3.610133919724538*^9}, {3.6101339711927853`*^9, 
+   3.610134036541419*^9}, {3.61013421953675*^9, 3.610134258432818*^9}, {
+   3.610134360784588*^9, 3.610134466494308*^9}, {3.61013450879076*^9, 
+   3.6101345243494577`*^9}, {3.610134584160604*^9, 3.610134604561575*^9}, {
+   3.610134638318162*^9, 3.61013471264809*^9}, 3.6101347794027777`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(3\\)\[NoBreak] \
+through \[NoBreak]\\!\\(4\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Part/take\\\", \
+ButtonNote -> \\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080111021*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -851,7 +1209,7 @@ is not of the form symbol::name or symbol::name::language. \
 \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
 ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Message/name\\\", \
 ButtonNote -> \\\"Message::name\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610111910464982*^9, 3.610124898951136*^9}],
+ CellChangeTimes->{3.6101450801122093`*^9}],
 
 Cell[BoxData[
  TagBox[
@@ -861,7 +1219,218 @@ Cell[BoxData[
 to be implemented\"\>", "]"}],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{3.610111910466601*^9, 3.6101248989527807`*^9}]
+ CellChangeTimes->{3.610111910466601*^9, 3.6101248989527807`*^9, 
+  3.610125327635387*^9, 3.610132502977414*^9, 3.6101326240700006`*^9, 
+  3.6101328188625183`*^9, 3.6101329809109507`*^9, 3.61013311408053*^9, 
+  3.610133315027809*^9, 3.610133570304009*^9, 3.610133764926612*^9, 
+  3.6101338082964487`*^9, 3.610133920652585*^9, 3.610134040133067*^9, 
+  3.6101342602145033`*^9, 3.610134396774465*^9, 3.610134468148197*^9, 
+  3.610134526093725*^9, 3.610134605238462*^9, 3.6101347134306726`*^9, 
+  3.61013478086658*^9, 3.610145080113171*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Block", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"LayeredGraphPlot", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"pathOnly", "[", 
+          RowBox[{"walkAtlasTraceroute", "[", 
+           RowBox[{
+            RowBox[{"tData", "[", 
+             RowBox[{"[", 
+              RowBox[{"1000", ";;", "5000"}], "]"}], "]"}], ",", 
+            RowBox[{"{", "probeVal", "}"}]}], "]"}], "]"}], ",", "1"}], "]"}],
+        ",", "\[IndentingNewLine]", " ", 
+       RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"probeVal", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "1165", ",", "1178", ",", "15111", ",", "2289", ",", "12735", ",", 
+       "10546", ",", "14720"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.610144315142364*^9, 3.6101443247501717`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1000\\)\[NoBreak] \
+through \[NoBreak]\\!\\(5000\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Part/take\\\", ButtonNote -> \
+\\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.610144525615477*^9, 3.610144622884739*^9, 3.610144674716899*^9, 
+   3.610144801336434*^9, 3.6101448984969997`*^9, {3.610145073205917*^9, 
+   3.610145080192218*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], \
+"\<\"\[NoBreak]\\!\\(pathOnly[\\(\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1000 ;; 5000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({1165}\\)\\)\\)\\)]\\)\\)]\\)\[NoBreak] is not a valid graph. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", \
+ButtonNote -> \\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.610144525615477*^9, 3.610144622884739*^9, 3.610144674716899*^9, 
+   3.610144801336434*^9, 3.6101448984969997`*^9, {3.610145073205917*^9, 
+   3.6101450801936398`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], \
+"\<\"\[NoBreak]\\!\\(pathOnly[\\(\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1000 ;; 5000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({1165}\\)\\)\\)\\)]\\)\\)]\\)\[NoBreak] is not a valid graph. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", \
+ButtonNote -> \\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.610144525615477*^9, 3.610144622884739*^9, 3.610144674716899*^9, 
+   3.610144801336434*^9, 3.6101448984969997`*^9, {3.610145073205917*^9, 
+   3.610145080277686*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], \
+"\<\"\[NoBreak]\\!\\(pathOnly[\\(\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1000 ;; 5000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({1165}\\)\\)\\)\\)]\\)\\)]\\)\[NoBreak] is not a valid graph. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", \
+ButtonNote -> \\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.610144525615477*^9, 3.610144622884739*^9, 3.610144674716899*^9, 
+   3.610144801336434*^9, 3.6101448984969997`*^9, {3.610145073205917*^9, 
+   3.610145080278854*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(LayeredGraphPlot :: grph\\), \\\"MessageName\\\
+\"]\\)\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.610144525615477*^9, 3.610144622884739*^9, 3.610144674716899*^9, 
+   3.610144801336434*^9, 3.6101448984969997`*^9, {3.610145073205917*^9, 
+   3.610145080279958*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "1165", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "1178", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "15111", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "2289", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "12735", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "10546", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"pathOnly", "[", 
+      RowBox[{"walkAtlasTraceroute", "[", 
+       RowBox[{
+        RowBox[{"tData", "\[LeftDoubleBracket]", 
+         RowBox[{"1000", ";;", "5000"}], "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", "14720", "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.610144316287064*^9, 3.610144328118062*^9}, 
+   3.610144456939786*^9, 3.610144528846637*^9, 3.610144626146706*^9, 
+   3.610144677825219*^9, 3.610144804421715*^9, 3.61014490158214*^9, {
+   3.610145073453272*^9, 3.6101450802815332`*^9}}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -892,8 +1461,7 @@ Cell[BoxData[{
            RowBox[{"{", "}"}]}], ",", 
           RowBox[{"candidateFrom", "[", 
            RowBox[{"[", "1", "]"}], "]"}], ",", 
-          RowBox[{"\"\<* at HOP\>\"", " ", "<>", " ", 
-           RowBox[{"ToString", "[", "hopID", "]"}]}]}], "]"}]}], ";", 
+          RowBox[{"Unique", "[", "\"\<astrix\>\"", "]"}]}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
         RowBox[{"--", 
@@ -975,15 +1543,25 @@ Cell[BoxData[{
        "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", "]"}]}], 
   ";"}], "\n", 
  RowBox[{"    "}]}], "Input",
- CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQBWIQXfZEw37301eOJskvl4Povy+Xc+wF0hbezkIg+r7a
-e2UQrajboQKiS/6s1ADRj64aaoLo7GOz9UD0qoBEIxCddnKdHYiutStwBdFP
-YjM8QbTC2fu+IHqCV18kiO7xj08E0fXKoWkgWuAQczOIVrn3oB1EmyY2d4Lo
-fcZfJoBo8QmzJoNoKRX7GSDabYvhfBC9IyVqOYi+ZH1oJYgWMZhktg9Id3zm
-twDRPcl69iDaa+s+VxDtYRDrBaIVAjQCQPQT3y/BILpuu1w0iDY6uyIeRBda
-MSSC1ZkrpYPoZofZOSD6VHa/6REg/dla1BZE33ixyhVEMy/bCqYB+5fBFw==
-
-  "]],
+ CellChangeTimes->{{3.6101063612778883`*^9, 3.6101071992933598`*^9}, {
+   3.610110021247313*^9, 3.610110098102932*^9}, {3.610110239473495*^9, 
+   3.610110244255509*^9}, {3.610110277312067*^9, 3.6101102815573587`*^9}, {
+   3.610110324867971*^9, 3.6101103550410967`*^9}, {3.610110453462085*^9, 
+   3.610110507507628*^9}, {3.6101105392614613`*^9, 3.6101105749937897`*^9}, {
+   3.610110668446602*^9, 3.6101107309784603`*^9}, {3.610110770660583*^9, 
+   3.6101110001174393`*^9}, {3.610111039027117*^9, 3.610111052105616*^9}, {
+   3.610111111631316*^9, 3.610111132830089*^9}, {3.610111169973157*^9, 
+   3.610111225553256*^9}, {3.610111290824795*^9, 3.6101113100698023`*^9}, {
+   3.610112436568369*^9, 3.610112448498478*^9}, {3.6101125054496517`*^9, 
+   3.61011255795963*^9}, {3.6101125949121437`*^9, 3.610112641259781*^9}, {
+   3.610112671634508*^9, 3.610112728959899*^9}, {3.6101127652750483`*^9, 
+   3.610112776007134*^9}, {3.610112825069229*^9, 3.610112868851625*^9}, {
+   3.610124716481908*^9, 3.610124776663568*^9}, {3.6101248453409233`*^9, 
+   3.610124845676515*^9}, {3.6101419875368147`*^9, 3.610142033621686*^9}, {
+   3.610142094492403*^9, 3.610142098794931*^9}, 3.610144444648677*^9, {
+   3.610144484338026*^9, 3.610144517359236*^9}, {3.610144594543198*^9, 
+   3.61014466715009*^9}, {3.610144781306657*^9, 3.610144795987666*^9}, {
+   3.610144915168592*^9, 3.610144936058064*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1095,14 +1673,10 @@ Cell[BoxData[
      ";"}], "\n", 
    RowBox[{"(*", " ", "TEST", " ", "*)"}], "\n", 
    RowBox[{
-    RowBox[{
-     RowBox[{"walkAtlasTraceroute", "[", 
-      RowBox[{
-       RowBox[{"tData", "[", 
-        RowBox[{"1664934", ",", " ", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], 
-       "[", 
-       RowBox[{"[", "1", "]"}], "]"}], "]"}], "[", 
-     RowBox[{"[", "8", "]"}], "]"}], " ", "//", " ", 
+    RowBox[{"walkAtlasTraceroute", "[", 
+     RowBox[{"tData", "[", 
+      RowBox[{"[", 
+       RowBox[{"8", ";;", "9"}], "]"}], "]"}], "]"}], " ", "//", " ", 
     "TableForm"}]}]}]], "Input",
  CellChangeTimes->{{3.6093184608795033`*^9, 3.6093185305797853`*^9}, {
    3.609318588361006*^9, 3.609318599209496*^9}, {3.609318813239024*^9, 
@@ -1144,33 +1718,32 @@ Cell[BoxData[
    3.610109840319592*^9, 3.61010996632895*^9}, 3.610111405771906*^9, {
    3.610111451491993*^9, 3.610111515079256*^9}, 3.6101118925208178`*^9, 
    3.610111963144537*^9, {3.610124448676175*^9, 3.61012447457834*^9}, {
-   3.61012451017579*^9, 3.610124538808125*^9}}],
+   3.61012451017579*^9, 3.610124538808125*^9}, {3.610130855330923*^9, 
+   3.610130871529153*^9}}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Part \[NoBreak]\\!\\(8\\)\[NoBreak] of \
-\[NoBreak]\\!\\(Message[\\\"walkAtlasTraceroute forward declaration here; \
-waiting for body to be implemented\\\"]\\)\[NoBreak] does not exist. \
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(8\\)\[NoBreak] \
+through \[NoBreak]\\!\\(9\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\[NoBreak]. \
 \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/partw\\\", \
-ButtonNote -> \\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610124899050469*^9}],
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Part/take\\\", \
+ButtonNote -> \\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080383623*^9}],
 
 Cell[BoxData[
  TagBox[
   RowBox[{
-   RowBox[{
-   "Message", 
-    "[", "\<\"walkAtlasTraceroute forward declaration here; waiting for body \
-to be implemented\"\>", "]"}], "\[LeftDoubleBracket]", "8", 
-   "\[RightDoubleBracket]"}],
+  "Message", 
+   "[", "\<\"walkAtlasTraceroute forward declaration here; waiting for body \
+to be implemented\"\>", "]"}],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{{3.6101245178463087`*^9, 3.610124539412677*^9}, 
-   3.61012489905142*^9}]
+   3.61012489905142*^9, 3.6101253277283583`*^9, 3.610131031148652*^9, 
+   3.610145080384672*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1228,11 +1801,10 @@ Cell[BoxData[
    RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"walkAtlasTraceroute", "[", 
-     RowBox[{
-      RowBox[{"tData", "[", 
-       RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-      RowBox[{"[", "1", "]"}], "]"}], "]"}], "//", "TableForm"}]}]}]], "Input",\
-
+     RowBox[{"tData", "[", 
+      RowBox[{"[", 
+       RowBox[{"8", ";;", "9"}], "]"}], "]"}], "]"}], "//", 
+    "TableForm"}]}]}]], "Input",
  CellChangeTimes->{{3.609152856227161*^9, 3.6091530200564337`*^9}, {
    3.609153168993411*^9, 3.609153192483499*^9}, {3.609153238330598*^9, 
    3.609153240867975*^9}, {3.609153317647407*^9, 3.609153326364382*^9}, {
@@ -1273,7 +1845,19 @@ Cell[BoxData[
    3.609792870365568*^9}, 3.609830621989456*^9, 3.61010241610664*^9, 
    3.61010485998792*^9, {3.610107419277362*^9, 3.610107463576796*^9}, 
    3.610111892872813*^9, {3.610113020037882*^9, 3.610113070247801*^9}, {
-   3.610123619801656*^9, 3.6101236241972923`*^9}}],
+   3.610123619801656*^9, 3.6101236241972923`*^9}, 3.610130886732271*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(8\\)\[NoBreak] \
+through \[NoBreak]\\!\\(9\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Part/take\\\", \
+ButtonNote -> \\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6101450804623823`*^9}],
 
 Cell[BoxData[
  TagBox[
@@ -1285,7 +1869,8 @@ to be implemented\"\>", "]"}],
    TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{
   3.6101120072773523`*^9, {3.610113047884385*^9, 3.610113070584056*^9}, 
-   3.61012369796916*^9, 3.610124899086483*^9}]
+   3.61012369796916*^9, 3.610124899086483*^9, 3.610125327768341*^9, 
+   3.610145080463603*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1321,8 +1906,7 @@ Cell[BoxData[
        "]"}], " ", ":=", 
      RowBox[{"Block", "[", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
         RowBox[{"--", 
          RowBox[{"\[Rule]", " ", "RETURNING"}]}], " ", "*)"}], 
@@ -1331,21 +1915,17 @@ Cell[BoxData[
         RowBox[{
         "prbID", ",", "\[IndentingNewLine]", "proto", ",", 
          "\[IndentingNewLine]", "parisID", ",", "\[IndentingNewLine]", "type",
-          ",", "\[IndentingNewLine]", "fw", ",", "\[IndentingNewLine]", 
-         RowBox[{"\"\<interval\>\"", "\[Rule]", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"unixTimeToHST", "[", 
-             RowBox[{"\"\<timestamp\>\"", "/.", "timeStamp"}], "]"}], ",", 
-            "\[IndentingNewLine]", 
-            RowBox[{"unixTimeToHST", "[", 
-             RowBox[{"\"\<endtime\>\"", "/.", "endTime"}], "]"}]}], "}"}]}], 
-         ",", " ", "\[IndentingNewLine]", "proto", ",", "\[IndentingNewLine]", 
+          ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<fw\>\"", "->", "fw"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<start\>\"", "\[Rule]", 
+          RowBox[{"unixTimeToHST", "[", 
+           RowBox[{"\"\<timestamp\>\"", "/.", "timeStamp"}], "]"}]}], ",", 
+         " ", "\[IndentingNewLine]", "proto", ",", "\[IndentingNewLine]", 
          RowBox[{"\"\<hopAndRTTs\>\"", "->", 
           RowBox[{"walkProbeTraceroute", "[", 
            RowBox[{"prbID", ",", "result"}], "]"}]}]}], "\[IndentingNewLine]",
          "}"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"Generalize", " ", "for", " ", "a", " ", "list"}], " ", "*)"}], 
    "\[IndentingNewLine]", 
@@ -1354,13 +1934,42 @@ Cell[BoxData[
      RowBox[{"walkAtlasTraceroute", "[", "aList_List", "]"}], ":=", " ", 
      RowBox[{"walkAtlasTraceroute", " ", "/@", " ", "aList"}]}], ";"}], 
    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"walkAtlasTraceroute", "[", 
+      RowBox[{"aList_List", ",", " ", "probes_List"}], "]"}], ":=", " ", 
+     RowBox[{"Block", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+       "{", "\[IndentingNewLine]", "aListMatching", "\[IndentingNewLine]", 
+        "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"aListMatching", "=", 
+         RowBox[{"Cases", "[", 
+          RowBox[{"aList", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"__", ",", 
+              RowBox[{"\"\<prb_id\>\"", "->", "prbID_"}], ",", "__"}], "}"}], 
+            "/;", 
+            RowBox[{"MemberQ", "[", 
+             RowBox[{"probes", ",", "prbID"}], "]"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Remove", " ", "all", " ", "data", " ", "other", " ", "than", " ", 
+          "the", " ", "selectd", " ", "probes"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"walkAtlasTraceroute", " ", "/@", " ", "aListMatching"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], " ", ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"walkAtlasTraceroute", "[", 
      RowBox[{
       RowBox[{"tData", "[", 
-       RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-      RowBox[{"[", "1", "]"}], "]"}], "]"}], "//", "TableForm"}]}]}]], "Input",\
+       RowBox[{"[", 
+        RowBox[{"1", ";;", "9"}], "]"}], "]"}], ",", 
+      RowBox[{"{", "10546", "}"}]}], "]"}], "//", "TableForm"}]}]}]], "Input",\
 
  CellChangeTimes->{{3.6087351806273727`*^9, 3.6087353513659554`*^9}, {
    3.608735578029001*^9, 3.608735585027238*^9}, {3.6087357119476643`*^9, 
@@ -1422,13 +2031,40 @@ Cell[BoxData[
    3.610112313575384*^9}, {3.610112909192918*^9, 3.61011293842479*^9}, {
    3.610112980776269*^9, 3.610112997533373*^9}, {3.610124952112544*^9, 
    3.610124993116364*^9}, {3.610125037510923*^9, 3.610125085194935*^9}, {
-   3.610125115888722*^9, 3.6101251700228252`*^9}}],
+   3.610125115888722*^9, 3.6101251700228252`*^9}, 3.610130899623432*^9, {
+   3.6101311299892607`*^9, 3.610131165833672*^9}, {3.6101313079069443`*^9, 
+   3.610131311192732*^9}, {3.610142580022688*^9, 3.610142613257842*^9}, {
+   3.610142662799941*^9, 3.6101427025309896`*^9}, {3.610142748339463*^9, 
+   3.61014289668351*^9}, {3.610142949119879*^9, 3.6101429549284363`*^9}, {
+   3.6101430140524797`*^9, 3.610143134528204*^9}, {3.6101435672398853`*^9, 
+   3.610143716319613*^9}, {3.610143758580669*^9, 3.6101437633482037`*^9}}],
 
 Cell[BoxData[
- TagBox["1664934",
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(9\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Part/take\\\", \
+ButtonNote -> \\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6101450805109873`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"walkAtlasTraceroute", "[", 
+   RowBox[{
+    RowBox[{"tData", "\[LeftDoubleBracket]", 
+     RowBox[{"1", ";;", "9"}], "\[RightDoubleBracket]"}], ",", 
+    RowBox[{"{", "10546", "}"}]}], "]"}],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.610125109124321*^9, 3.61012515054033*^9}}]
+ CellChangeTimes->{{3.610125109124321*^9, 3.61012515054033*^9}, 
+   3.610125327834579*^9, 3.610131312795908*^9, {3.610142828450005*^9, 
+   3.6101428515256023`*^9}, 3.610142897455544*^9, 3.610142956021474*^9, 
+   3.610143137698772*^9, {3.6101437075405207`*^9, 3.610143717148788*^9}, 
+   3.6101437640726013`*^9, 3.6101450805121717`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1463,31 +2099,51 @@ traceroute paths\>\""}], ";"}], "\[IndentingNewLine]",
         RowBox[{"\"\<proto\>\"", "\[Rule]", "proto_String"}], ",", 
         RowBox[{"\"\<paris_id\>\"", "->", "parisID_Integer"}], ",", 
         RowBox[{"\"\<type\>\"", "->", "type_String"}], ",", 
-        RowBox[{"\"\<interval\>\"", "->", "interval_List"}], ",", " ", 
+        RowBox[{"\"\<fw\>\"", "\[Rule]", "fw_Integer"}], ",", 
+        RowBox[{"\"\<start\>\"", "\[Rule]", "start_List"}], ",", " ", 
         RowBox[{"\"\<proto\>\"", "->", "proto_String"}], ",", " ", 
-        RowBox[{"\"\<hopsAsCDF\>\"", "\[Rule]", "hopsAsCDF_List"}]}], "}"}], 
-      "]"}], ":=", " ", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{"Block", "[", 
+        RowBox[{"\"\<hopAndRTTs\>\"", "\[Rule]", "hopsAndRTTs_List"}]}], 
+       "}"}], "]"}], ":=", " ", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"path", ",", "pathWithProbeStart", ",", "valToReturn"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"Flatten", "[", 
-         RowBox[{"{", 
-          RowBox[{"prbID", ",", 
+        RowBox[{"path", "=", 
+         RowBox[{"Prepend", "[", 
+          RowBox[{
+           RowBox[{"\"\<from\>\"", "/.", " ", "hopsAndRTTs"}], ",", " ", 
            RowBox[{
+            RowBox[{"ToString", "[", "prbID", "]"}], "<>", "\"\<__\>\"", "<>", 
+            RowBox[{"ToString", "[", "parisID", "]"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"valToReturn", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Rule", "@@", "#"}], "&"}], "/@", 
+          RowBox[{"Partition", "[", 
+           RowBox[{"path", ",", "2", ",", "1"}], "]"}]}]}], ";", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"--", 
+          RowBox[{"\[Rule]", "RETURNING"}]}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"DeleteDuplicates", "[", 
+         RowBox[{"Sort", "[", 
+          RowBox[{"valToReturn", ",", 
+           RowBox[{"OrderedQ", "[", 
             RowBox[{
-             RowBox[{"\"\<from\>\"", "/.", " ", "#"}], " ", "&"}], "/@", 
-            RowBox[{"hopsAsCDF", "[", 
-             RowBox[{"[", 
-              RowBox[{"All", ",", "1"}], "]"}], "]"}]}]}], "}"}], "]"}]}], 
-       "]"}], "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"First", "[", "#1", "]"}], ",", 
+               RowBox[{"First", "[", "#2", "]"}]}], "}"}], "&"}], "]"}]}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-     RowBox[{"pathOnly", "[", "aList_List", "]"}], ":=", " ", 
-     RowBox[{"Flatten", "[", 
-      RowBox[{
-       RowBox[{"pathOnly", "/@", " ", "aList"}], ",", "1"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"pathOnly", "[", "aList_List", "]"}], ":=", 
+     RowBox[{"pathOnly", "/@", " ", "aList"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"NOTIFY", " ", "ON", " ", "UNKNOWN", " ", "ARGUMENT"}], " ", 
     "*)"}], " ", "\[IndentingNewLine]", 
@@ -1499,17 +2155,26 @@ traceroute paths\>\""}], ";"}], "\[IndentingNewLine]",
        RowBox[{"pathOnly", "::", "unexpectedArg"}], ",", "x"}], "]"}]}], 
     ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", " ", "TEST", " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"pathOnly", "[", 
-     RowBox[{"walkAtlasTraceroute", "[", 
-      RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"traces", ",", " ", "paths"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"traces", "=", 
        RowBox[{"tData", "[", 
-        RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-       
-       RowBox[{"[", 
-        RowBox[{"{", 
-         RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}], "//", 
-    "MatrixForm"}]}]}]], "Input",
+        RowBox[{"[", 
+         RowBox[{"1", ";;", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"traces", "=", 
+       RowBox[{"tData", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ";;", "1000"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"paths", "=", 
+       RowBox[{"pathOnly", "[", 
+        RowBox[{"walkAtlasTraceroute", "[", "traces", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"Dimensions", "[", "paths", "]"}]}]}], "]"}]}]}]], "Input",
  CellChangeTimes->{{3.609326403191737*^9, 3.609326415080881*^9}, {
    3.609326524203845*^9, 3.609326698678954*^9}, {3.60932691561574*^9, 
    3.609326943762895*^9}, {3.60932703073063*^9, 3.609327129893414*^9}, {
@@ -1519,477 +2184,99 @@ traceroute paths\>\""}], ";"}], "\[IndentingNewLine]",
    3.609328176027771*^9}, 3.609371306697978*^9, {3.6093715815299177`*^9, 
    3.609371591477867*^9}, {3.609371782611763*^9, 3.609371788986367*^9}, {
    3.609793165773903*^9, 3.609793204867646*^9}, 3.6098306238169117`*^9, 
-   3.610102432753113*^9, 3.610111894416342*^9}],
+   3.610102432753113*^9, 3.610111894416342*^9, 3.610125430171682*^9, {
+   3.6101254888745832`*^9, 3.610125597138588*^9}, {3.6101256358416147`*^9, 
+   3.61012576353309*^9}, 3.610125795346704*^9, {3.6101311831182404`*^9, 
+   3.610131221336285*^9}, 3.6101312650549107`*^9, {3.610131336701317*^9, 
+   3.6101313371040907`*^9}, {3.610131371728072*^9, 3.61013139184818*^9}, {
+   3.61013148776422*^9, 3.610131856186281*^9}, {3.610131927820177*^9, 
+   3.610131956029207*^9}, {3.610132008629431*^9, 3.610132020131283*^9}, {
+   3.610132059432569*^9, 3.610132064313519*^9}, {3.61014050449093*^9, 
+   3.610140683600925*^9}, {3.6101407170584106`*^9, 3.610140726905352*^9}, {
+   3.610140788145252*^9, 3.610140797629006*^9}, {3.610140843013487*^9, 
+   3.6101408764400883`*^9}, {3.610140915462295*^9, 3.6101409218713617`*^9}, {
+   3.610140987957827*^9, 3.610141018952507*^9}, {3.610141066847294*^9, 
+   3.6101410789420652`*^9}, {3.610141128613763*^9, 3.6101411933206453`*^9}, {
+   3.610141244737125*^9, 3.610141248258273*^9}, {3.610141302512169*^9, 
+   3.610141302782941*^9}, 3.61014135021133*^9, {3.6101413832893047`*^9, 
+   3.6101414580880737`*^9}, {3.610141490002995*^9, 3.610141556066204*^9}, {
+   3.6101415936831408`*^9, 3.610141620634758*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(2\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Part/take\\\", \
+ButtonNote -> \\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080591525*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(1000\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Part/take\\\", ButtonNote -> \
+\\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080592477*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"prb_id\\\" \[Rule] \
-12735\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6100939268953447`*^9, 3.6101248993174057`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"proto\\\" \[Rule] \\\"ICMP\\\"\\)\
+  ":", " "}], "\<\"\[NoBreak]\\!\\(walkAtlasTraceroute[\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1 ;; 1000\\)\\) \[RightDoubleBracket]\\)\\)]\\)\
 \[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6100939268953447`*^9, 3.6101248995058203`*^9}],
+ CellChangeTimes->{3.610145080728003*^9}],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"paris_id\\\" \[Rule] \
-1\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6100939268953447`*^9, 3.610124899697921*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(pathOnly \
-:: unexpectedArg\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
-during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6100939268953447`*^9, 3.6101248997301073`*^9}],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", 
-   TagBox[GridBox[{
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"},
-      {"Null"}
-     },
-     GridBoxAlignment->{
-      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
-        "RowsIndexed" -> {}},
-     GridBoxSpacings->{"Columns" -> {
-         Offset[0.27999999999999997`], {
-          Offset[0.5599999999999999]}, 
-         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-         Offset[0.2], {
-          Offset[0.4]}, 
-         Offset[0.2]}, "RowsIndexed" -> {}}],
-    Column], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.60979318261623*^9, 3.609793206120055*^9}, 
-   3.610093926977556*^9, 3.6101248997312193`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Partition", "[", 
-     RowBox[{"#", ",", "2", ",", "1"}], "]"}], "&"}], "/@", 
-   RowBox[{"pathOnly", "[", 
-    RowBox[{"walkAtlasTraceroute", "[", 
-     RowBox[{
-      RowBox[{"tData", "[", 
-       RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-      RowBox[{"[", 
-       RowBox[{"{", 
-        RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}]}], "//", 
-  "MatrixForm"}]], "Input",
- CellChangeTimes->{{3.609793301191374*^9, 3.6097933161422987`*^9}, {
-   3.6097933629824467`*^9, 3.6097934204048977`*^9}, 3.61010243722353*^9, 
-   3.610111894595952*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"prb_id\\\" \[Rule] \
-12735\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.61012490005376*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"proto\\\" \[Rule] \\\"ICMP\\\"\\)\
-\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.610124900248314*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"paris_id\\\" \[Rule] \
-1\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.610124900435411*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(pathOnly \
-:: unexpectedArg\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
-during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.610124900467929*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.6101249005045967`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.610124900547615*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.6101249005806847`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Partition \
-:: pdep\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
-calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927090313*^9, 3.6101249006322002`*^9}],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", 
-   TagBox[GridBox[{
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]}
-     },
-     GridBoxAlignment->{
-      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
-        "RowsIndexed" -> {}},
-     GridBoxSpacings->{"Columns" -> {
-         Offset[0.27999999999999997`], {
-          Offset[0.5599999999999999]}, 
-         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-         Offset[0.2], {
-          Offset[0.4]}, 
-         Offset[0.2]}, "RowsIndexed" -> {}}],
-    Column], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
+ RowBox[{"{", "}"}]], "Output",
  CellChangeTimes->{
-  3.609793319404248*^9, {3.6097933700623503`*^9, 3.609793398866954*^9}, 
-   3.609793432992259*^9, 3.610093927177999*^9, 3.610124900633624*^9}]
+  3.610141194142976*^9, 3.610141248746571*^9, 3.610141303334029*^9, {
+   3.610141472954486*^9, 3.610141502834055*^9}, {3.6101416162273407`*^9, 
+   3.610141621714682*^9}, 3.610145080728643*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"Apply", "[", 
-   RowBox[{"Rule", ",", 
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Block", "[", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{
-      RowBox[{"Partition", "[", 
-       RowBox[{"#", ",", "2", ",", "1"}], "]"}], "&"}], "/@", 
-     RowBox[{"pathOnly", "[", 
-      RowBox[{"walkAtlasTraceroute", "[", 
-       RowBox[{
-        RowBox[{"tData", "[", 
-         RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], "[", 
-        RowBox[{"[", 
-         RowBox[{"{", 
-          RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}]}], ",", 
-    RowBox[{"{", "2", "}"}]}], "]"}], "//", "MatrixForm"}]], "Input",
- CellChangeTimes->{{3.609793436534978*^9, 3.609793484310351*^9}, {
-   3.60979351633704*^9, 3.609793540062986*^9}, 3.610102441146624*^9, 
-   3.61011189478757*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"prb_id\\\" \[Rule] \
-12735\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124900847362*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"proto\\\" \[Rule] \\\"ICMP\\\"\\)\
-\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124901029212*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"paris_id\\\" \[Rule] \
-1\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.6101249012201147`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(pathOnly \
-:: unexpectedArg\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed \
-during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124901297731*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124901298617*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124901365189*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.6101249013660297`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Partition \
-:: pdep\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
-calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927241776*^9, 3.610124901449028*^9}],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", 
-   TagBox[GridBox[{
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]},
-      {
-       RowBox[{"Partition", "[", 
-        RowBox[{"Null", ",", "2", ",", "1"}], "]"}]}
-     },
-     GridBoxAlignment->{
-      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
-        "RowsIndexed" -> {}},
-     GridBoxSpacings->{"Columns" -> {
-         Offset[0.27999999999999997`], {
-          Offset[0.5599999999999999]}, 
-         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-         Offset[0.2], {
-          Offset[0.4]}, 
-         Offset[0.2]}, "RowsIndexed" -> {}}],
-    Column], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{
-  3.609793484917548*^9, {3.609793518671019*^9, 3.609793540705941*^9}, 
-   3.6100939273094*^9, 3.6101249014504757`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"GraphPlot", "[", 
-  RowBox[{
-   RowBox[{"Flatten", "[", 
-    RowBox[{
-     RowBox[{"Apply", "[", 
-      RowBox[{"Rule", ",", 
-       RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"LayeredGraphPlot", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
         RowBox[{
-         RowBox[{"Partition", "[", 
-          RowBox[{"#", ",", "2", ",", "1"}], "]"}], "&"}], "/@", 
-        RowBox[{"pathOnly", "[", 
-         RowBox[{"walkAtlasTraceroute", "[", 
-          RowBox[{
-           RowBox[{"tData", "[", 
-            RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}], 
-           "[", 
-           RowBox[{"[", 
-            RowBox[{"{", 
-             RowBox[{"3", ",", "4"}], "}"}], "]"}], "]"}], "]"}], "]"}]}], 
-       ",", 
-       RowBox[{"{", "2", "}"}]}], "]"}], ",", "1"}], "]"}], ",", " ", 
-   RowBox[{"MultiedgeStyle", "\[Rule]", "True"}], ",", " ", 
-   RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", " ", 
-   RowBox[{"VertexLabeling", "\[Rule]", "False"}]}], "]"}]], "Input",
+         RowBox[{"pathOnly", "[", 
+          RowBox[{"walkAtlasTraceroute", "[", 
+           RowBox[{
+            RowBox[{"tData", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ";;", "10000"}], "]"}], "]"}], ",", 
+            RowBox[{"{", "probeVal", "}"}]}], "]"}], "]"}], ",", "1"}], "]"}],
+        ",", "\[IndentingNewLine]", " ", 
+       RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"probeVal", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "1165", ",", "1178", ",", "15111", ",", "2289", ",", "12735", ",", 
+       "10546", ",", "14720"}], "}"}]}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.609371502165085*^9, 3.609371560113246*^9}, {
    3.609371615655254*^9, 3.6093716540379133`*^9}, {3.609371685158326*^9, 
    3.6093717652079487`*^9}, {3.609371806256789*^9, 3.609372055365323*^9}, {
@@ -1997,34 +2284,135 @@ Cell[BoxData[
    3.609793031096384*^9}, {3.609793249385181*^9, 3.6097932706160603`*^9}, {
    3.609793592504487*^9, 3.609793718737458*^9}, {3.609793776032805*^9, 
    3.609793825486217*^9}, 3.609793878286293*^9, {3.609793909084*^9, 
-   3.609793954392103*^9}, 3.6101024443482637`*^9, 3.610111894957528*^9}],
+   3.609793954392103*^9}, 3.6101024443482637`*^9, 3.610111894957528*^9, {
+   3.6101309801596518`*^9, 3.6101309912129173`*^9}, {3.61013212302253*^9, 
+   3.610132161512155*^9}, {3.610132195581395*^9, 3.61013222551928*^9}, 
+   3.6101348170424957`*^9, {3.610141744129877*^9, 3.6101418267467527`*^9}, {
+   3.610142054604189*^9, 3.610142058636125*^9}, {3.6101421536094093`*^9, 
+   3.610142153838376*^9}, {3.6101424924595537`*^9, 3.6101424998435507`*^9}, {
+   3.6101431820282373`*^9, 3.6101432989369717`*^9}, {3.610143370843279*^9, 
+   3.610143420204484*^9}, {3.6101434541136703`*^9, 3.6101435086956673`*^9}, {
+   3.61014378425259*^9, 3.610143836417207*^9}, {3.610143956561633*^9, 
+   3.61014396332672*^9}, {3.61014418395124*^9, 3.610144184863102*^9}, {
+   3.61014422023663*^9, 3.610144234606159*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(10000\\)\[NoBreak] in \[NoBreak]\\!\\(tData\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Part/take\\\", ButtonNote -> \
+\\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080793655*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"prb_id\\\" \[Rule] \
-12735\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124901795848*^9}],
+  ":", " "}], "\<\"\[NoBreak]\\!\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1 ;; 10000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({1165}\\)\\)\\)\\)]\\)\[NoBreak]\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080855008*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Flatten", "::", "normal"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Nonatomic expression expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \[NoBreak]\\!\\(Flatten[\\(\\(Null, \
+1\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/normal\\\", ButtonNote -> \
+\\\"Flatten::normal\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080855719*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Flatten[\\(\\(Null, 1\\)\\)]\\)\[NoBreak] \
+is not a valid graph. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", ButtonNote -> \
+\\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080921997*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Flatten[\\(\\(Null, 1\\)\\)]\\)\[NoBreak] \
+is not a valid graph. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", ButtonNote -> \
+\\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080988309*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LayeredGraphPlot", "::", "grph"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Flatten[\\(\\(Null, 1\\)\\)]\\)\[NoBreak] \
+is not a valid graph. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/LayeredGraphPlot\\\", ButtonNote -> \
+\\\"LayeredGraphPlot::grph\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145080989274*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(LayeredGraphPlot :: grph\\), \\\"MessageName\\\
+\"]\\)\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.61014508099009*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"proto\\\" \[Rule] \\\"ICMP\\\"\\)\
-\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.6101249020153418`*^9}],
+  ":", " "}], "\<\"\[NoBreak]\\!\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1 ;; 10000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({1178}\\)\\)\\)\\)]\\)\[NoBreak]\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145081080196*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Flatten", "::", "normal"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Nonatomic expression expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \[NoBreak]\\!\\(Flatten[\\(\\(Null, \
+1\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/normal\\\", ButtonNote -> \
+\\\"Flatten::normal\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.61014508113857*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"pathOnly", "::", "unexpectedArg"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"paris_id\\\" \[Rule] \
-1\\)\[NoBreak]\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124902169793*^9}],
+  ":", " "}], "\<\"\[NoBreak]\\!\\(walkAtlasTraceroute[\\(\\(\\(\\(tData \
+\[LeftDoubleBracket] \\(\\(1 ;; 10000\\)\\) \[RightDoubleBracket]\\)\\), \
+\\(\\({15111}\\)\\)\\)\\)]\\)\[NoBreak]\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145081189353*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -2037,154 +2425,94 @@ during this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
 ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
 \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.6101249022007513`*^9}],
+ CellChangeTimes->{3.610145081190127*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
+   RowBox[{"Flatten", "::", "normal"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124902231968*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124902265871*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Partition", "::", "pdep"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Depth \[NoBreak]\\!\\(1\\)\[NoBreak] requested in object \
-with dimensions \[NoBreak]\\!\\({}\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Partition/pdep\\\", ButtonNote -> \
-\\\"Partition::pdep\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124902297579*^9}],
+  ":", " "}], "\<\"Nonatomic expression expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \[NoBreak]\\!\\(Flatten[\\(\\(Null, \
+1\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/normal\\\", ButtonNote -> \
+\\\"Flatten::normal\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.610145081274225*^9}],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
    RowBox[{"General", "::", "stop"}], "MessageName"], 
   RowBox[{
-  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Partition \
-:: pdep\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
-calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Flatten \
+:: normal\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
 ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
 \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.6101249023323307`*^9}],
+ CellChangeTimes->{3.6101450812753468`*^9}],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"GraphPlot", "::", "grph"}], "MessageName"], 
+ RowBox[{"{", 
   RowBox[{
-  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(\\(Partition[\\(\\(Null, 2, \
-1\\)\\)]\\)\\), \\(\\(Partition[\\(\\(Null, 2, 1\\)\\)]\\)\\), \
-\\(\\(Partition[\\(\\(Null, 2, 1\\)\\)]\\)\\), \\(\\(Partition[\\(\\(Null, 2, \
-1\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 8 \[RightSkeleton]\\)\\), \
-\\(\\(Partition[\\(\\(Null, 2, 1\\)\\)]\\)\\), \\(\\(Partition[\\(\\(Null, 2, \
-1\\)\\)]\\)\\), \\(\\(Partition[\\(\\(Null, 2, 1\\)\\)]\\)\\), \
-\\(\\(Partition[\\(\\(Null, 2, 1\\)\\)]\\)\\)}\\)\[NoBreak] is not a valid \
-graph. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/GraphPlot\\\", ButtonNote -> \\\"GraphPlot::grph\\\
-\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.610093927392872*^9, 3.610124902420167*^9}],
-
-Cell[BoxData[
- RowBox[{"GraphPlot", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}], ",", 
-     RowBox[{"Partition", "[", 
-      RowBox[{"Null", ",", "2", ",", "1"}], "]"}]}], "}"}], ",", 
-   RowBox[{"MultiedgeStyle", "\[Rule]", "True"}], ",", 
-   RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
-   RowBox[{"VertexLabeling", "\[Rule]", "False"}]}], "]"}]], "Output",
- CellChangeTimes->{3.609793969688442*^9, 3.610093927561473*^9, 
-  3.61012490242137*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"traceroutesAsGraphPlot", "[", "jsonData_List", "]"}], ":=", 
-   RowBox[{"GraphPlot", "[", 
+   RowBox[{"LayeredGraphPlot", "[", 
     RowBox[{
      RowBox[{"Flatten", "[", 
-      RowBox[{
-       RowBox[{"DeleteDuplicates", "[", 
-        RowBox[{"Apply", "[", 
-         RowBox[{"Rule", ",", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"Partition", "[", 
-             RowBox[{"#", ",", "2", ",", "1"}], "]"}], "&"}], "/@", 
-           RowBox[{"pathOnly", "[", 
-            RowBox[{"walkAtlasTraceroute", "[", "jsonData", "]"}], "]"}]}], 
-          ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}], "]"}], ",", "1"}], "]"}], ",", 
-     " ", 
-     RowBox[{"MultiedgeStyle", "\[Rule]", "True"}], ",", " ", 
-     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", " ", 
-     RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",\
-
- CellChangeTimes->{{3.60979431480513*^9, 3.609794382859767*^9}, 
-   3.6101118951261797`*^9}],
-
-Cell[BoxData[
- RowBox[{"traceroutesAsGraphPlot", "[", 
-  RowBox[{"tData", "[", 
-   RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], "]"}]}]], "Input",\
-
- CellChangeTimes->{{3.609794391835547*^9, 3.609794396760754*^9}, 
-   3.610101699311347*^9},
- EmphasizeSyntaxErrors->True]
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"LayeredGraphPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Null", ",", "1"}], "]"}], ",", 
+     RowBox[{"MultiedgeStyle", "\[Rule]", "False"}], ",", 
+     RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+     RowBox[{"VertexLabeling", "\[Rule]", "Automatic"}]}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.610143274673581*^9, 3.6101433447243834`*^9, 3.610143378703816*^9, 
+   3.610143421123349*^9, 3.6101434821588287`*^9, 3.610143514091015*^9, {
+   3.61014378131918*^9, 3.610143791958794*^9}, 3.610143862592968*^9, 
+   3.610143964025538*^9, 3.6101441874650908`*^9, {3.610144221975004*^9, 
+   3.610144242543268*^9}, 3.610145081276642*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -2205,35 +2533,14 @@ Cell["\<\
 http://mathematica.stackexchange.com/questions/3111/extracting-values-from-\
 nested-rules-in-json-data\
 \>", "Text",
- CellChangeTimes->{{3.6087323539273777`*^9, 3.6087323627374983`*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"tData", "=", 
-   RowBox[{"Import", "[", 
-    RowBox[{
-    "\"\<https://atlas.ripe.net/api/v1/measurement/1664934/result/\>\"", ",", 
-     "\"\<JSON\>\""}], "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.60978636701115*^9, 3.609786368080016*^9}, {
-  3.60978640126621*^9, 3.6097864169695673`*^9}}],
-
-Cell[BoxData[
- RowBox[{"tDataCDF", "=", 
-  RowBox[{"walkAtlasTraceroute", "[", 
-   RowBox[{"tData", "[", 
-    RowBox[{"1664934", ",", "\"\<pacificEndpoint-Oahu\>\""}], 
-    "]"}]}]}]], "Input",
- CellChangeTimes->{{3.6097864111854153`*^9, 3.609786435559135*^9}, 
-   3.610101713663014*^9, 3.610111895294112*^9},
- EmphasizeSyntaxErrors->True]
+ CellChangeTimes->{{3.6087323539273777`*^9, 3.6087323627374983`*^9}}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowToolbars->"EditBar",
-WindowSize->{1674, 982},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
-Magnification:>2. Inherited,
+WindowSize->{2313, 1340},
+WindowMargins->{{-6, Automatic}, {Automatic, 0}},
 FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
 2013)",
 StyleDefinitions->"Default.nb"
@@ -2250,119 +2557,102 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 100, 1, 159, "Section"],
+Cell[579, 22, 100, 1, 80, "Section"],
 Cell[CellGroupData[{
-Cell[704, 27, 113, 1, 87, "Subsection"],
-Cell[820, 30, 1492, 35, 288, "Text"]
+Cell[704, 27, 113, 1, 44, "Subsection"],
+Cell[820, 30, 1492, 35, 144, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2349, 70, 244, 3, 87, "Subsection"],
-Cell[2596, 75, 4315, 89, 849, "Input"],
+Cell[2349, 70, 244, 3, 44, "Subsection"],
+Cell[2596, 75, 4315, 89, 403, "Input"],
 Cell[CellGroupData[{
-Cell[6936, 168, 254, 3, 68, "Subsubsection"],
-Cell[7193, 173, 715, 19, 156, "Input"],
+Cell[6936, 168, 254, 3, 35, "Subsubsection"],
+Cell[7193, 173, 247, 5, 28, "Input"],
+Cell[7443, 180, 7089, 145, 216, "Input"],
 Cell[CellGroupData[{
-Cell[7933, 196, 1366, 26, 123, "Input"],
-Cell[9302, 224, 280, 5, 78, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[9619, 234, 1182, 23, 123, "Input"],
-Cell[10804, 259, 190, 4, 78, "Output"]
-}, Open  ]],
-Cell[11009, 266, 4973, 106, 519, "Input"]
+Cell[14557, 329, 974, 14, 28, "Input"],
+Cell[15534, 345, 142, 3, 28, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16043, 379, 243, 3, 159, "Section"],
-Cell[16289, 384, 625, 14, 145, "Input"],
+Cell[15749, 356, 243, 3, 80, "Section"],
+Cell[15995, 361, 625, 14, 46, "Input"],
 Cell[CellGroupData[{
-Cell[16939, 402, 372, 5, 87, "Subsection"],
+Cell[16645, 379, 372, 5, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[17336, 411, 400, 5, 68, "Subsubsection"],
+Cell[17042, 388, 400, 5, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[17761, 420, 1069, 25, 178, "Input"],
-Cell[18833, 447, 168, 4, 78, "Output"]
+Cell[17467, 397, 1069, 25, 80, "Input"],
+Cell[18539, 424, 214, 5, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19038, 456, 4928, 118, 1102, "Input"],
-Cell[23969, 576, 1202, 29, 210, "Output"]
+Cell[18790, 434, 5462, 131, 437, "Input"],
+Cell[24255, 567, 1300, 31, 108, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25208, 610, 10999, 230, 1465, "Input"],
-Cell[36210, 842, 595, 11, 78, "Message"],
-Cell[36808, 855, 285, 8, 78, "Output"]
-}, Open  ]],
-Cell[37108, 866, 4913, 119, 1036, "Input"],
-Cell[CellGroupData[{
-Cell[42046, 989, 7779, 157, 1069, "Input"],
-Cell[49828, 1148, 562, 11, 45, "Message"],
-Cell[50393, 1161, 386, 11, 78, "Output"]
+Cell[25592, 603, 27297, 583, 1185, "Input"],
+Cell[52892, 1188, 503, 10, 24, "Message"],
+Cell[53398, 1200, 575, 11, 24, "Message"],
+Cell[53976, 1213, 756, 15, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50816, 1177, 5314, 98, 508, "Input"],
-Cell[56133, 1277, 359, 10, 78, "Output"]
+Cell[54769, 1233, 1192, 30, 114, "Input"],
+Cell[55964, 1265, 658, 14, 24, "Message"],
+Cell[56625, 1281, 760, 15, 24, "Message"],
+Cell[57388, 1298, 758, 15, 24, "Message"],
+Cell[58149, 1315, 758, 15, 24, "Message"],
+Cell[58910, 1332, 686, 14, 24, "Message"],
+Cell[59599, 1348, 3887, 84, 131, "Output"]
+}, Open  ]],
+Cell[63501, 1435, 5834, 128, 488, "Input"],
+Cell[CellGroupData[{
+Cell[69360, 1567, 7691, 154, 505, "Input"],
+Cell[77054, 1723, 503, 10, 24, "Message"],
+Cell[77560, 1735, 384, 10, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[56529, 1292, 7565, 132, 915, "Input"],
-Cell[64097, 1426, 160, 4, 78, "Output"]
+Cell[77981, 1750, 5275, 97, 233, "Input"],
+Cell[83259, 1849, 505, 10, 24, "Message"],
+Cell[83767, 1861, 407, 11, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[64294, 1435, 3663, 86, 640, "Input"],
-Cell[67960, 1523, 285, 7, 44, "Message"],
-Cell[68248, 1532, 291, 7, 44, "Message"],
-Cell[68542, 1541, 281, 7, 44, "Message"],
-Cell[68826, 1550, 566, 11, 45, "Message"],
-Cell[69395, 1563, 972, 35, 572, "Output"]
+Cell[84211, 1877, 9032, 162, 556, "Input"],
+Cell[93246, 2041, 505, 10, 24, "Message"],
+Cell[93754, 2053, 623, 13, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[70404, 1603, 644, 17, 145, "Input"],
-Cell[71051, 1622, 280, 7, 44, "Message"],
-Cell[71334, 1631, 287, 7, 44, "Message"],
-Cell[71624, 1640, 279, 7, 44, "Message"],
-Cell[71906, 1649, 562, 11, 45, "Message"],
-Cell[72471, 1662, 517, 10, 45, "Message"],
-Cell[72991, 1674, 515, 10, 45, "Message"],
-Cell[73509, 1686, 517, 10, 45, "Message"],
-Cell[74029, 1698, 556, 11, 45, "Message"],
-Cell[74588, 1711, 2300, 68, 588, "Output"]
+Cell[94414, 2071, 6127, 131, 403, "Input"],
+Cell[100544, 2204, 503, 10, 24, "Message"],
+Cell[101050, 2216, 508, 11, 24, "Message"],
+Cell[101561, 2229, 336, 8, 24, "Message"],
+Cell[101900, 2239, 258, 5, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[76925, 1784, 752, 19, 145, "Input"],
-Cell[77680, 1805, 281, 7, 44, "Message"],
-Cell[77964, 1814, 287, 7, 44, "Message"],
-Cell[78254, 1823, 281, 7, 44, "Message"],
-Cell[78538, 1832, 562, 11, 45, "Message"],
-Cell[79103, 1845, 515, 10, 45, "Message"],
-Cell[79621, 1857, 515, 10, 45, "Message"],
-Cell[80139, 1869, 517, 10, 45, "Message"],
-Cell[80659, 1881, 554, 11, 45, "Message"],
-Cell[81216, 1894, 2276, 68, 588, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[83529, 1967, 1495, 32, 211, "Input"],
-Cell[85027, 2001, 281, 7, 44, "Message"],
-Cell[85311, 2010, 289, 7, 44, "Message"],
-Cell[85603, 2019, 279, 7, 44, "Message"],
-Cell[85885, 2028, 564, 11, 45, "Message"],
-Cell[86452, 2041, 515, 10, 45, "Message"],
-Cell[86970, 2053, 515, 10, 45, "Message"],
-Cell[87488, 2065, 515, 10, 45, "Message"],
-Cell[88006, 2077, 556, 11, 45, "Message"],
-Cell[88565, 2090, 884, 16, 111, "Message"],
-Cell[89452, 2108, 1785, 41, 244, "Output"]
-}, Open  ]],
-Cell[91252, 2152, 962, 25, 211, "Input"],
-Cell[92217, 2179, 283, 7, 78, "Input"]
+Cell[102195, 2249, 2425, 47, 114, "Input"],
+Cell[104623, 2298, 509, 11, 24, "Message"],
+Cell[105135, 2311, 369, 8, 24, "Message"],
+Cell[105507, 2321, 524, 11, 24, "Message"],
+Cell[106034, 2334, 475, 10, 24, "Message"],
+Cell[106512, 2346, 475, 10, 24, "Message"],
+Cell[106990, 2358, 475, 10, 24, "Message"],
+Cell[107468, 2370, 538, 11, 24, "Message"],
+Cell[108009, 2383, 369, 8, 24, "Message"],
+Cell[108381, 2393, 523, 11, 24, "Message"],
+Cell[108907, 2406, 370, 8, 24, "Message"],
+Cell[109280, 2416, 540, 11, 24, "Message"],
+Cell[109823, 2429, 524, 11, 24, "Message"],
+Cell[110350, 2442, 534, 11, 24, "Message"],
+Cell[110887, 2455, 2617, 58, 80, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[92549, 2192, 148, 2, 87, "Subsection"],
+Cell[113565, 2520, 148, 2, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[92722, 2198, 123, 3, 68, "Subsubsection"],
-Cell[92848, 2203, 196, 4, 60, "Text"],
-Cell[93047, 2209, 331, 8, 78, "Input"],
-Cell[93381, 2219, 339, 8, 78, "Input"]
+Cell[113738, 2526, 123, 3, 35, "Subsubsection"],
+Cell[113864, 2531, 196, 4, 30, "Text"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
