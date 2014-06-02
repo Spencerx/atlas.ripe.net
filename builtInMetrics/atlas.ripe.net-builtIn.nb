@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[   2076995,      37542]
-NotebookOptionsPosition[   2073088,      37404]
-NotebookOutlinePosition[   2073578,      37423]
-CellTagsIndexPosition[   2073535,      37420]
+NotebookDataLength[   2078225,      37572]
+NotebookOptionsPosition[   2074314,      37434]
+NotebookOutlinePosition[   2074804,      37453]
+CellTagsIndexPosition[   2074761,      37450]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -100,10 +100,30 @@ Cell[BoxData[{
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"pprintProbe", "[", "1165", "]"}], ",", 
-   RowBox[{"pprintProbe", "[", "1178", "]"}], ",", 
-   RowBox[{"pprintProbe", "[", "2289", "]"}], ",", 
-   RowBox[{"pprintProbe", "[", "10546", "]"}]}], "}"}]], "Output",
+   StyleBox["\<\"p1165_Maui:Hana\"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Plain,
+    FontSlant->Plain,
+    FontVariations->{"Underline"->False},
+    FontColor->RGBColor[0, 0, 1]], ",", 
+   StyleBox["\<\"p1178_Maui:Hana\"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Plain,
+    FontSlant->Plain,
+    FontVariations->{"Underline"->False},
+    FontColor->RGBColor[1, 0, 0]], ",", 
+   StyleBox["\<\"p2289_BI:Hawi\"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Plain,
+    FontSlant->Plain,
+    FontVariations->{"Underline"->False},
+    FontColor->RGBColor[0.5, 0, 0.5]], ",", 
+   StyleBox["\<\"p10546_BI:Hilo\"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Plain,
+    FontSlant->Plain,
+    FontVariations->{"Underline"->False},
+    FontColor->RGBColor[0.6, 0.4, 0.2]]}], "}"}]], "Output",
  CellChangeTimes->{3.609590023581336*^9, 3.60959020221766*^9, 
   3.6095922361519117`*^9, 3.609592726061841*^9, 3.609593277808979*^9, 
   3.60959717938281*^9, 3.609824875200173*^9, 3.609825600693022*^9, 
@@ -111,7 +131,7 @@ Cell[BoxData[
   3.609829718900196*^9, 3.609830183353506*^9, 3.609853623427164*^9, 
   3.609943302906762*^9, 3.6099590711313257`*^9, 3.609959804044866*^9, 
   3.609961121002334*^9, 3.609981491863453*^9, 3.61000961493668*^9, 
-  3.610010409810952*^9, 3.610016917551138*^9}]
+  3.610010409810952*^9, 3.610016917551138*^9, 3.610617858296803*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -170,7 +190,8 @@ Cell[BoxData[
   3.609829718900196*^9, 3.609830183353506*^9, 3.609853623427164*^9, 
   3.609943302906762*^9, 3.6099590711313257`*^9, 3.609959804044866*^9, 
   3.609961121002334*^9, 3.609981491863453*^9, 3.61000961493668*^9, 
-  3.610010409810952*^9, 3.610016917551138*^9, 3.6100275847480907`*^9}]
+  3.610010409810952*^9, 3.610016917551138*^9, 3.6100275847480907`*^9, 
+  3.610617858344054*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -216,7 +237,8 @@ Cell[BoxData[
    3.609853623561655*^9, 3.609943303023329*^9, 3.6099590712935123`*^9, 
    3.609959804177937*^9, 3.609961121191471*^9, 3.609981492012319*^9, 
    3.610009615084695*^9, 3.610010409946059*^9, 3.610014381044125*^9, 
-   3.6100148942445498`*^9, 3.610015034090464*^9, 3.610016917652301*^9}]
+   3.6100148942445498`*^9, 3.610015034090464*^9, 3.610016917652301*^9, 
+   3.610617858372816*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -297,7 +319,7 @@ Cell[BoxData[
    3.609943303057624*^9, 3.609959071357753*^9, 3.609959804214333*^9, 
    3.609961121231923*^9, 3.609981492085455*^9, 3.610009615169457*^9, 
    3.610010409984269*^9, 3.6100169176896887`*^9, 3.610016967970517*^9, {
-   3.610027624516869*^9, 3.6100276388913517`*^9}}]
+   3.610027624516869*^9, 3.6100276388913517`*^9}, 3.610617858407323*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -370,7 +392,8 @@ Cell[BoxData[
    3.6098284817127857`*^9}, 3.609829719148286*^9, 3.609830183600341*^9, 
    3.6098536236588917`*^9, 3.6099433030899267`*^9, 3.609959071422791*^9, 
    3.6099598042473707`*^9, 3.6099611212985163`*^9, 3.609981492133127*^9, 
-   3.6100096152074127`*^9, 3.610010410017331*^9, 3.6100169177717867`*^9}]
+   3.6100096152074127`*^9, 3.610010410017331*^9, 3.6100169177717867`*^9, 
+   3.610617858440423*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -468,7 +491,8 @@ json?probe_id=1178&measurement_id=1&starttime=2012-02-24T08:19:23&endtime=\
    3.6098284817467003`*^9, 3.609829719182798*^9, 3.609830183635625*^9, 
    3.6098536236930113`*^9, 3.6099433031231318`*^9, 3.609959071490099*^9, 
    3.6099598043142242`*^9, 3.609961121364581*^9, 3.6099814921667624`*^9, 
-   3.610009615275956*^9, 3.610010410085494*^9, 3.610016917839435*^9}]
+   3.610009615275956*^9, 3.610010410085494*^9, 3.610016917839435*^9, 
+   3.610617858473134*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -560,7 +584,7 @@ atlas.ripe.net-builtIn-p1178-resolution_1h-hop_1.json\"\>"], "Output",
    3.6098297192163887`*^9, 3.6098301836700974`*^9, 3.60985362372703*^9, 
    3.609943303159514*^9, 3.609959071558177*^9, 3.6099598043835278`*^9, 
    3.609961121433612*^9, 3.609981492203261*^9, 3.6100096153432207`*^9, 
-   3.610010410180767*^9, 3.61001691790661*^9}]
+   3.610010410180767*^9, 3.61001691790661*^9, 3.610617858506504*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -921,7 +945,7 @@ Cell[BoxData[
    3.609829721269508*^9, 3.609830185168706*^9, 3.609853625454372*^9, 
    3.609943305337366*^9, 3.609959073197784*^9, 3.609959806613276*^9, 
    3.609961123419587*^9, 3.6099814939770117`*^9, 3.610009617482723*^9, 
-   3.6100104120828333`*^9, 3.610016920022146*^9}]
+   3.6100104120828333`*^9, 3.610016920022146*^9, 3.610617995398011*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -990,7 +1014,7 @@ Cell[BoxData[
    3.609830194865299*^9, 3.6098536355442953`*^9, 3.609943314712328*^9, 
    3.609949753043385*^9, 3.609959082585878*^9, 3.609959816344179*^9, 
    3.609961132762163*^9, 3.609981503738112*^9, 3.610009626890004*^9, 
-   3.610010421050251*^9, 3.6100169294615803`*^9}]
+   3.610010421050251*^9, 3.6100169294615803`*^9, 3.6106187712763042`*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -1080,7 +1104,7 @@ Cell[BoxData[
   3.609829759850718*^9, 3.609830227478818*^9, 3.6098536647578583`*^9, 
   3.6099433459181356`*^9, 3.609959113318598*^9, 3.609959846335058*^9, 
   3.609961161667169*^9, 3.609981533001659*^9, 3.610009655735442*^9, 
-  3.610010449679459*^9, 3.6100169609947042`*^9}]
+  3.610010449679459*^9, 3.6100169609947042`*^9, 3.6106188021112747`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1144,7 +1168,7 @@ Cell[BoxData["True"], "Output",
   3.609829760201233*^9, 3.609830231266705*^9, 3.609853665147327*^9, 
   3.6099433462871723`*^9, 3.609959113710724*^9, 3.609959846710375*^9, 
   3.609961162023809*^9, 3.6099815333772*^9, 3.610009656085456*^9, 
-  3.610010450042947*^9, 3.610016961349873*^9}]
+  3.610010450042947*^9, 3.610016961349873*^9, 3.6106188026170073`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1236,7 +1260,7 @@ Cell[BoxData[
   3.609853665587495*^9, 3.609943346648563*^9, 3.609959114126255*^9, 
   3.609959847048257*^9, 3.6099611623599253`*^9, 3.609981533762052*^9, 
   3.610009656440158*^9, 3.610010450374435*^9, 3.610016961693698*^9, 
-  3.610020543473027*^9}]
+  3.610020543473027*^9, 3.610618803207528*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3126,6 +3150,8 @@ oB9PL/PA/lE6D+rlTLkH9vL0e2Df4kHqM2WY+6ndlDfoxDHs7wgY4/1f4Bjf
            FormBox["\"Apr\"", TraditionalForm], {0.020601132958329826`, 0}}, {
           3607891200, 
            FormBox["\"May\"", TraditionalForm], {0.020601132958329826`, 0}}, {
+          3610569600, 
+           FormBox["\"Jun\"", TraditionalForm], {0.020601132958329826`, 0}}, {
           3603830400, 
            FormBox["\"\"", TraditionalForm], {0.012360679774997897`, 0}}, {
           3606508800, 
@@ -3138,6 +3164,8 @@ oB9PL/PA/lE6D+rlTLkH9vL0e2Df4kHqM2WY+6ndlDfoxDHs7wgY4/1f4Bjf
            FormBox["\"\"", TraditionalForm], {0.020601132958329826`, 0}}, {
           3607891200, 
            FormBox["\"\"", TraditionalForm], {0.020601132958329826`, 0}}, {
+          3610569600, 
+           FormBox["\"\"", TraditionalForm], {0.020601132958329826`, 0}}, {
           3603830400, 
            FormBox["\"\"", TraditionalForm], {0.012360679774997897`, 0}}, {
           3606508800, 
@@ -3147,9 +3175,10 @@ oB9PL/PA/lE6D+rlTLkH9vL0e2Df4kHqM2WY+6ndlDfoxDHs7wgY4/1f4Bjf
       GridLines -> {{{3602620800, 
           GrayLevel[0.8]}, {3605299200, 
           GrayLevel[0.8]}, {3607891200, 
+          GrayLevel[0.8]}, {3610569600, 
           GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {}, 
       PlotRange -> {{
-        3602620800, 3.610355858810534*^9}, {-2.2250738585072014`*^-308, 
+        3602620800, 3.610600803423976*^9}, {-2.2250738585072014`*^-308, 
         40.50000000000001}}, PlotRangeClipping -> True, 
       PlotRangePadding -> {Automatic, Automatic}, Ticks -> None], 
      TemplateBox[{
@@ -3371,7 +3400,7 @@ oB9PL/PA/lE6D+rlTLkH9vL0e2Df4kHqM2WY+6ndlDfoxDHs7wgY4/1f4Bjf
    3.610025757728801*^9}, 3.6100260830868883`*^9, 3.610027224492111*^9, 
    3.610027728371163*^9, 3.610028854574855*^9, 3.610029163996647*^9, {
    3.610029484567326*^9, 3.610029523956246*^9}, 3.6100296458648367`*^9, 
-   3.610373859890647*^9}]
+   3.610373859890647*^9, 3.6106188044763403`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3428,15 +3457,15 @@ Cell[BoxData[
  TagBox[
   TagBox[
    StyleBox[
-    DynamicModuleBox[{$CellContext`i7$$ = 17, Typeset`show$$ = True, 
+    DynamicModuleBox[{$CellContext`i5$$ = 23, Typeset`show$$ = True, 
      Typeset`bookmarkList$$ = {
-     "\"min\"" :> {$CellContext`i7$$ = 1}, 
-      "\"max\"" :> {$CellContext`i7$$ = 24}}, Typeset`bookmarkMode$$ = "Menu",
+     "\"min\"" :> {$CellContext`i5$$ = 1}, 
+      "\"max\"" :> {$CellContext`i5$$ = 24}}, Typeset`bookmarkMode$$ = "Menu",
       Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
      "\"untitled\"", Typeset`specs$$ = {{{
-        Hold[$CellContext`i7$$], 1, ""}, 1, 24, 1}}, Typeset`size$$ = 
+        Hold[$CellContext`i5$$], 1, ""}, 1, 24, 1}}, Typeset`size$$ = 
      Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
-     Typeset`skipInitDone$$ = True, $CellContext`i7$23873$$ = 0}, 
+     Typeset`skipInitDone$$ = True, $CellContext`i5$9343$$ = 0}, 
      PaneBox[
       PanelBox[
        DynamicWrapperBox[GridBox[{
@@ -3446,14 +3475,15 @@ Cell[BoxData[
              TagBox[
               StyleBox[GridBox[{
                  {"\<\"\"\>", 
-                  AnimatorBox[Dynamic[$CellContext`i7$$], {1, 24, 1},
+                  AnimatorBox[Dynamic[$CellContext`i5$$], {1, 24, 1},
                    AnimationRate->0.5,
                    
                    AppearanceElements->{
                     "ProgressSlider", "PlayPauseButton", 
                     "FasterSlowerButtons", "DirectionButton"},
                    AutoAction->False,
-                   DisplayAllSteps->True]}
+                   DisplayAllSteps->True,
+                   PausedTime->44.]}
                 },
                 AutoDelete->False,
                 
@@ -3940,7 +3970,7 @@ FA==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355915258136*^9}, {-2.2250738585072014`*^-308, 
+                    3.61060080462517*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -4667,7 +4697,7 @@ ZfC/I9Wyny3hfFuKqk1+arVcMvYj6O9CrMrl8hX0/7hLot8F/cuJb6uF+QX4
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355915881993*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600805191358*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -5358,7 +5388,7 @@ zH/I/r9//AuGXF8m
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355916535081*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600805774774*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -6088,7 +6118,7 @@ j4Yh/nM9st+hHQL/BxJIhXs=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355917179315*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600806342582*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -6778,7 +6808,7 @@ ud4gPu38d1GyOP/Su6C+3rYuuE9r3SN4/78+AvcTOykC56m8OgLr9eyJwHr9
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355917833463*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600806916141*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -7499,7 +7529,7 @@ Yv6bbpd6vIz5Z5Nd5vNL0H/aLu/zw/xfapf/H5R6D/s/O2B+Kw==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355918477366*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600807487487*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -8189,7 +8219,7 @@ tBZNcH7qA5ugntbjTRCP9HYT7MdxoAnP/5r/vf8fOuxyiA==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355919124396*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600808053563*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -8905,7 +8935,7 @@ pZ5Xo/8drzb9/SioqFreZ0s6+v8f1tGKmg==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.61035591975659*^9}, {-2.2250738585072014`*^-308, 
+                    3.61060080861493*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -9593,7 +9623,7 @@ WkoL9EfI3wLf11L7ANyH7IMCoG/njAD6n4rvG0kBvP/5AtCvtluCoGclJgj+
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355920372807*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600809178442*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -10306,7 +10336,7 @@ ON7uk1WyXz6F/8VVxn7XeeD/AA8de/o=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355920988383*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600809741297*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -10994,7 +11024,7 @@ Jgbw94a1ATz/TgXw9yZf4P/9/gNdrHtW
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355921613736*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600810305329*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -11703,7 +11733,7 @@ vJ5txhX5+wGod18Qc/s8ivg/SRyoEuYDzDuVV4z5s2fA/wEY95qK
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355922234791*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600810872129*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -12388,7 +12418,7 @@ Qe9Kaju+f1r+t/5f6DhkUw==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355922851646*^9}, {-2.2250738585072014`*^-308, 
+                    3.61060081144688*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -13112,7 +13142,7 @@ kP/waumv+bweWFVtmv8djWuM+Yff7+lfY/r/DcvMGmNeh/7tNXLer0T+Q2uM
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355923478688*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600812014883*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -13798,7 +13828,7 @@ x/F5o2Mc+//Ncfi+sCfGYf/Kijjef9PjUE/eWPz/9/0H3xGC9A==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355924103384*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600812601823*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -14521,7 +14551,7 @@ rw==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355924720895*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600813208347*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -15202,7 +15232,7 @@ jkehPsjdWsGP6vBW6K8lteL9v6YV3ldSaius74j+b/x/QMF5fQ==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355925350385*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600813803525*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -15920,7 +15950,7 @@ SQ30+9VIPWmE/u01pnpmOV9j3K/g/+qa//fP/wHTSoZF
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355925970778*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600814369409*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -16605,7 +16635,7 @@ xzgUgXyzj0Yw/9s44H95kAN61qY62P+tdUB/1gEH899x/tfTv1evigY=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355926599037*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600814942297*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -17321,7 +17351,7 @@ GIGb
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.61035592723017*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600815503891*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -18001,7 +18031,7 @@ w95MvIf/Q+Q/qw705T1bB/eD3q4ezjPUeoiHNace9Ot+Xo/1n4HPa6fr4f7w
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355927862169*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600816072231*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -18715,7 +18745,7 @@ v0+jbl4xLiGW4yDOUwF7G7l+n8XfVxL1bG1q5Pncb8jE/wORo3ia
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355928477048*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600816633592*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -19395,7 +19425,7 @@ Dg==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355929111605*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600817206018*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -20110,7 +20140,7 @@ swTzf0X53/Xs/6emnAo=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355929733072*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600817768908*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -20793,7 +20823,7 @@ oadT0L/sJSnoF57CFLzP56T+z/e/lp9x+Q==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.61035593035634*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600818340112*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -21507,7 +21537,7 @@ yf/H3MW+t73K1F8s0VXGvET9e6v+P0//B6JSjxc=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355930971004*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600818909381*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -22190,7 +22220,7 @@ RGA9b14E4jX+iED/2bq1Qr5kRyv0h2tOK9zv2dQK/alnt/7ff/8CM92Vgw==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355931603791*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600819476643*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -22907,7 +22937,7 @@ QX/3Vm3/Qv6VVt15PGRxq+48GLmzVcs/9r3UVq7fSk+/fwDJKqul
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355932237202*^9}, {-2.2250738585072014`*^-308, 
+                    3.61060082003663*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -23593,7 +23623,7 @@ QiP+vyX6GOjFGHEM+pfwHGRpPbKaewz0rp3Dcf+DITjfGhbCfm92CPJVXhuC
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355932867046*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600820604883*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -24316,7 +24346,7 @@ b6x11Dfkf5c6qR89oX8scbrqr3OR/4F18r1ihv49xOrztW0D/E+pk/4ZB/13
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355933486503*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600821182428*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -25003,7 +25033,7 @@ rh1+Dwbz/sf/Aoe9hsE=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355934112518*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600821764082*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -25728,7 +25758,7 @@ uvpsX9HI9Q3r276/UYuHnMcMmcTZcp6D/pZGrkeoP5a+TdxfPJD/7zdpv2fA
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355934730895*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600822331213*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -26416,7 +26446,7 @@ EobzOSlhvO/fCEN8vI0qob7ofZFNrRK/9zZWwvnkpP+9/x93KmRw
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355935355487*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600822907145*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -27140,7 +27170,7 @@ vj+c9nLpp2GI/85yk1/6Xi6X76uUDrb/ARD+lLg=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355935978203*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600823473018*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -27831,7 +27861,7 @@ Kvhe0qtxvdBSh/vbh+kw7nTq+P9LO3Twh+bV/+/X/wGtP04B
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355936605056*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600824045504*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -28558,7 +28588,7 @@ t8lr7Af0x3mNeaxZj/8Ba4Cg9Q==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355937220362*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600824613502*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -29248,7 +29278,7 @@ XykKQzwCp8N4//VuA33S+DbQ4zPbwA+MT9pgvz+/7f/75j9QY1mY
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355937837284*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600825186739*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -29974,7 +30004,7 @@ c5n0PyRGjDQ=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355938458416*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600825757667*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -30664,7 +30694,7 @@ rhf8YX3ohXw6OtXC/MpoZP/yWoiP6WAtzGdx1v5fr/8BIv1vOw==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355939098504*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600826333659*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -31392,7 +31422,7 @@ VMIgnjz2V8vvHS3gf1r1//37EzmrjS8=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355939730155*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600826900817*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -32081,7 +32111,7 @@ L1DMhCs=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355940358279*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600827470428*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -32807,7 +32837,7 @@ og==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355940985507*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600828028336*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -33498,7 +33528,7 @@ iuNWtB3737F2zH/fFO5/k1PgX21eCvJrbk5Bfdm1KYinl06B3/19OkBPcEIH
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355941616585*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600828592162*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -34225,7 +34255,7 @@ xuKwew==
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355942237099*^9}, {-2.2250738585072014`*^-308, 
+                    3.61060082915205*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -34914,7 +34944,7 @@ LWyG9YPbmuF9qRc1/5+P/wD144Ap
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355942870569*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600829726721*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -35640,7 +35670,7 @@ EbWm9/mwg7VGPUf9L6iV91fsJ8ZbK+8Txcj/HlfEX3vxvjPpiun7gXXlFakn
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355943493912*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600830296228*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -36330,7 +36360,7 @@ MN8zPQz1ba4Po/6PhsEeuz8M9jhjYegX7r4RiK8xNYL+r42Afm2HIxBvR0Xk
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.610355944120069*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600830871596*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -37058,7 +37088,7 @@ F112kwM=
                     GrayLevel[0.8]}}, None}, ImageSize -> Large, Method -> {},
                      PlotRange -> {{
                     3537043200, 
-                    3.61035594474896*^9}, {-2.2250738585072014`*^-308, 
+                    3.610600831444903*^9}, {-2.2250738585072014`*^-308, 
                     70.50000000000001}}, PlotRangeClipping -> True, 
                     PlotRangePadding -> {Automatic, Automatic}, Ticks -> 
                     None], 
@@ -37283,7 +37313,7 @@ F112kwM=
                     RowBox[{"{", 
                     RowBox[{"Bottom", ",", "Left"}], "}"}], ",", 
                     RowBox[{"RotateLabel", "\[Rule]", "True"}]}], "]"}]& )]}],
-                   "}"}]}, Dynamic[$CellContext`i7$$],
+                   "}"}]}, Dynamic[$CellContext`i5$$],
                  Alignment->Automatic,
                  ImageSize->All],
                 Identity,
@@ -37327,8 +37357,8 @@ F112kwM=
             CurrentValue["PreviousFormatTime"], 
             CurrentValue["CurrentFormatTime"]]& , {
             
-            Manipulate`Dump`controllerLink[{$CellContext`i7$$, \
-$CellContext`i7$23873$$}, "X1", 
+            Manipulate`Dump`controllerLink[{$CellContext`i5$$, \
+$CellContext`i5$9343$$}, "X1", 
              If["DefaultAbsolute", True, "JB1"], False, {1, 24, 1}, 24, 1.]}], 
           
           CurrentValue[{
@@ -37360,7 +37390,7 @@ $CellContext`i7$23873$$}, "X1",
    3.6100301289087753`*^9, 3.610030237836974*^9, 3.610037510538919*^9, 
    3.61005741134622*^9, 3.6100577098886213`*^9, 3.6100617855034437`*^9, 
    3.610363288281052*^9, 3.610363335085408*^9, 3.610364106789669*^9, 
-   3.610364193953187*^9, 3.610373948126655*^9}]
+   3.610364193953187*^9, 3.610373948126655*^9, 3.610618833825863*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -37380,7 +37410,7 @@ Cell[BoxData["\<\"/tmp/traceroute.hops.mov\"\>"], "Output",
    3.610027113163085*^9, 3.610027564177854*^9, 3.610028166599127*^9, 
    3.6100291626489897`*^9, 3.610029749350131*^9, 3.6100298339907846`*^9, 
    3.6100298963700027`*^9, 3.610030146553463*^9, 3.610030519733761*^9, 
-   3.6103743082627907`*^9}]
+   3.6103743082627907`*^9, 3.610619152890499*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -37404,7 +37434,7 @@ Cell[BoxData[
 },
 WindowToolbars->"EditBar",
 WindowSize->{1696, 1247},
-WindowMargins->{{73, Automatic}, {29, Automatic}},
+WindowMargins->{{Automatic, 409}, {Automatic, 7}},
 Magnification:>1.5 Inherited,
 FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
 2013)",
@@ -37433,114 +37463,114 @@ Cell[CellGroupData[{
 Cell[1765, 57, 264, 3, 51, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[2054, 64, 1434, 33, 232, "Input"],
-Cell[3491, 99, 787, 14, 31, "Output"]
+Cell[3491, 99, 1407, 34, 32, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4327, 119, 317, 4, 51, "Subsubsection"],
+Cell[4947, 139, 317, 4, 51, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[4669, 127, 1477, 32, 232, "Input"],
-Cell[6149, 161, 690, 11, 31, "Output"]
+Cell[5289, 147, 1477, 32, 232, "Input"],
+Cell[6769, 181, 715, 12, 31, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6888, 178, 312, 4, 51, "Subsubsection"],
+Cell[7533, 199, 312, 4, 51, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[7225, 186, 901, 19, 107, "Input"],
-Cell[8129, 207, 735, 11, 31, "Output"]
+Cell[7870, 207, 901, 19, 107, "Input"],
+Cell[8774, 228, 761, 12, 31, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8913, 224, 312, 4, 51, "Subsubsection"],
+Cell[9584, 246, 312, 4, 51, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[9250, 232, 1511, 29, 132, "Input"],
-Cell[10764, 263, 1482, 36, 32, "Output"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[12307, 306, 222, 3, 119, "Section"],
-Cell[CellGroupData[{
-Cell[12554, 313, 307, 8, 51, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[12886, 325, 1174, 28, 132, "Input"],
-Cell[14063, 355, 1083, 17, 31, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[15195, 378, 98, 1, 51, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[15318, 383, 3226, 69, 384, "Input"],
-Cell[18547, 454, 1156, 16, 57, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[19740, 475, 3112, 68, 409, "Input"],
-Cell[22855, 545, 1275, 17, 57, "Output"]
-}, Open  ]],
-Cell[24145, 565, 1569, 37, 232, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[25751, 607, 204, 3, 51, "Subsubsection"],
-Cell[25958, 612, 7619, 166, 907, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[33614, 783, 336, 4, 51, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[33975, 791, 5090, 116, 707, "Input"],
-Cell[39068, 909, 909, 14, 31, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[40026, 929, 397, 5, 51, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[40448, 938, 1701, 36, 307, "Input"],
-Cell[42152, 976, 999, 16, 31, "Output"]
-}, Open  ]],
-Cell[43166, 995, 1722, 44, 207, "Input"],
-Cell[CellGroupData[{
-Cell[44913, 1043, 1083, 24, 257, "Input"],
-Cell[45999, 1069, 817, 13, 31, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[46865, 1088, 455, 8, 51, "Subsubsection"],
-Cell[47323, 1098, 1241, 27, 157, "Input"],
-Cell[CellGroupData[{
-Cell[48589, 1129, 227, 4, 31, "Input"],
-Cell[48819, 1135, 771, 11, 31, "Output"]
+Cell[9921, 254, 1511, 29, 132, "Input"],
+Cell[11435, 285, 1504, 36, 32, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[49651, 1153, 465, 6, 119, "Section"],
+Cell[13000, 328, 222, 3, 119, "Section"],
 Cell[CellGroupData[{
-Cell[50141, 1163, 577, 8, 67, "Subsubsection"],
+Cell[13247, 335, 307, 8, 51, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[50743, 1175, 868, 24, 57, "Input"],
-Cell[51614, 1201, 1743, 37, 55, "Output"]
-}, Open  ]],
-Cell[53372, 1241, 260, 5, 32, "Input"],
-Cell[53635, 1248, 703, 19, 57, "Input"],
-Cell[54341, 1269, 7800, 137, 682, "Input"]
+Cell[13579, 347, 1174, 28, 132, "Input"],
+Cell[14756, 377, 1109, 18, 31, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62190, 1412, 3725, 50, 119, "Section"],
+Cell[15914, 401, 98, 1, 51, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[65940, 1466, 11996, 214, 1032, "Input"],
-Cell[77939, 1682, 98584, 1691, 601, "Output"]
+Cell[16037, 406, 3226, 69, 359, "Input"],
+Cell[19266, 477, 1182, 17, 57, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[176560, 3378, 2367, 46, 82, "Input"],
-Cell[178930, 3426, 1892416, 33936, 1354, "Output"]
+Cell[20485, 499, 3112, 68, 384, "Input"],
+Cell[23600, 569, 1297, 17, 32, "Output"]
+}, Open  ]],
+Cell[24912, 589, 1569, 37, 207, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2071383, 37367, 522, 8, 31, "Input"],
-Cell[2071908, 37377, 371, 5, 31, "Output"]
+Cell[26518, 631, 204, 3, 51, "Subsubsection"],
+Cell[26725, 636, 7619, 166, 857, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2072316, 37387, 601, 8, 67, "Subsubsection"],
-Cell[2072920, 37397, 128, 2, 31, "Input"]
+Cell[34381, 807, 336, 4, 51, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[34742, 815, 5090, 116, 657, "Input"],
+Cell[39835, 933, 931, 14, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40815, 953, 397, 5, 51, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[41237, 962, 1701, 36, 307, "Input"],
+Cell[42941, 1000, 1023, 16, 31, "Output"]
+}, Open  ]],
+Cell[43979, 1019, 1722, 44, 182, "Input"],
+Cell[CellGroupData[{
+Cell[45726, 1067, 1083, 24, 257, "Input"],
+Cell[46812, 1093, 841, 13, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47702, 1112, 455, 8, 51, "Subsubsection"],
+Cell[48160, 1122, 1241, 27, 132, "Input"],
+Cell[CellGroupData[{
+Cell[49426, 1153, 227, 4, 31, "Input"],
+Cell[49656, 1159, 795, 11, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50512, 1177, 465, 6, 119, "Section"],
+Cell[CellGroupData[{
+Cell[51002, 1187, 577, 8, 67, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[51604, 1199, 868, 24, 57, "Input"],
+Cell[52475, 1225, 1765, 37, 72, "Output"]
+}, Open  ]],
+Cell[54255, 1265, 260, 5, 32, "Input"],
+Cell[54518, 1272, 703, 19, 57, "Input"],
+Cell[55224, 1293, 7800, 137, 682, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63073, 1436, 3725, 50, 119, "Section"],
+Cell[CellGroupData[{
+Cell[66823, 1490, 11996, 214, 1032, "Input"],
+Cell[78822, 1706, 98850, 1696, 597, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[177709, 3407, 2367, 46, 82, "Input"],
+Cell[180079, 3455, 1892471, 33937, 1354, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2072587, 37397, 522, 8, 31, "Input"],
+Cell[2073112, 37407, 393, 5, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2073542, 37417, 601, 8, 67, "Subsubsection"],
+Cell[2074146, 37427, 128, 2, 31, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
